@@ -1,0 +1,9 @@
+<div>
+	<h1><%= @job.title %></h1>
+	<p><%= @job.location %></p>
+	<p>$ <%= @job.salary %></p>
+	<p><%= @job.skill %></p>
+</div>
+<div><%= link_to "Home", root_path %></div>
+<div><%= link_to "Edit", edit_job_path(@job) %></div>
+<div><%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "Are you sure??"} %></div>

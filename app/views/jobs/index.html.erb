@@ -1,0 +1,13 @@
+<div>
+	<h1>Jobs Index</h1>
+    <% @jobs.each do |job| %>
+		<h2><%= link_to job.title, job %></h2>
+	<% end %>
+	
+	<div>
+	<button type="button">
+		<%= link_to "+ New Job", new_job_path  %>
+	</button>
+	</div>
+  </div>
+</div>

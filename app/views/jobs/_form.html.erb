@@ -1,0 +1,38 @@
+<div>
+	<%= form_for @job do |f| %>
+
+<!-- form input -->
+
+ 	<div class="form-group">
+	 	<%= f.label "Job Title" %>
+	 	<%= f.text_field :title %>
+	 </div>
+
+
+	<div>
+	<%= f.label "Job Type" %>
+	</div>
+
+	 <div class="form-group">
+	 	<%= f.label "Salary" %>
+	 	<%= f.text_field :salary %>
+	 </div>
+
+	 <div class="form-group">
+	 	<%= f.label "Skill Requirements" %>
+	 	<%= f.text_field :skill %>
+	 </div>
+
+	 <div class="form-group">
+	 	<%= f.label "Location" %>
+	 	<%= f.text_field :location %>
+	 </div>
+
+
+	  <div class="form-group">
+	 	<%= f.submit "Post Job", class: "btn btn-primary" %>
+	 </div>
+
+ <% end %>
+ </div>
+ 
