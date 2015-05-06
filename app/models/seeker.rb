@@ -1,0 +1,2 @@
+class Seeker < User
+end
