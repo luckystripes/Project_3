@@ -19,6 +19,10 @@ get "seekers" => "seekers#index"
 get "signup_employer" => "employers#new", as: :signup_employer
 post "employers" => "employers#create"
 get "employers" => "employers#index"
+get "employers/:id/edit" => "employers#edit", as: :edit_employer
+put "employers/:id" => "employers#update", as: :employer
+patch "employers/:id" => "employers#update"
+
   
 
 
