@@ -14,13 +14,15 @@ Rails.application.routes.draw do
 get "signup_seeker" => "seekers#new", as: :signup_seeker
 post "seekers" => "seekers#create"
 get "seekers" => "seekers#index"
+get "seekers/:id" => "seekers#show", as: :seeker
+get "seekers/:id/edit" => "seekers#edit", as: :edit_seeker
+patch "seekers/:id" => "seekers#update"
   
 # Employers routes
 get "signup_employer" => "employers#new", as: :signup_employer
 post "employers" => "employers#create"
 get "employers" => "employers#index"
   
-
 
 #log in routes
 get '/login'     => 'sessions#new'
