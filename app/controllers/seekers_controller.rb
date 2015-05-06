@@ -3,6 +3,10 @@ class SeekersController < ApplicationController
 		
 	end
 
+  def show
+    @seeker = Seeker.find(params[:id])
+  end
+
 	def new
     @seeker = Seeker.new
   end
@@ -18,9 +22,24 @@ class SeekersController < ApplicationController
     end
   end
 
-private
- def seeker_params
-    params.require(:seeker).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  def edit #This action is the first part of editing a page.  "retrives a single record"
+    @seeker = Seeker.find(params[:id]) 
   end
 
-end
+  def update #this action saves the change in the database.
+    @seeker = Seeker.find(params[:id]) #retrives a single record
+    if @seeker.update_attributes(seeker_edit_params)  #If a record is successfully updated, redirect to the reports index.  
+      redirect_to seekers_path
+    else
+      render :edit  #If a record is not successfully updated, render a new edit form.
+    end
+  end
+
+private
+  def seeker_params
+    params.require(:seeker).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+  def seeker_edit_params
+    params.require(:seeker).permit(:first_name, :last_name, :email, :phone, :job_type, :skill_set, :edu_level, :work_exp, :date_available, :address, :city, :state, :zipcode,:password, :password_confirmation, )
+  end
+end #end of controller
