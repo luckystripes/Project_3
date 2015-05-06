@@ -15,6 +15,11 @@ get "signup_seeker" => "seekers#new", as: :signup_seeker
 post "seekers" => "seekers#create"
 get "seekers" => "seekers#index"
   
+# Employers routes
+get "signup_employer" => "employers#new", as: :signup_employer
+post "employers" => "employers#create"
+get "employers" => "employers#index"
+  
 
 
 #log in routes

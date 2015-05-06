@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:login][:password]) 
       session[:user_id] = user.id.to_s
-      redirect_to users_path
+      if user.type == "Employer"
+        redirect_to employers_path
+      elsif user.type == "Seeker"
+        redirect_to seekers_path
+      end
 
     else
     flash.now[:danger] = 'Invalid login ID/password combination'
