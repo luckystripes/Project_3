@@ -10,5 +10,20 @@ Rails.application.routes.draw do
   patch 'jobs/:id' => 'jobs#update'
   delete 'jobs/:id' => 'jobs#destroy'
 
+# Seekers routes
+get "signup_seeker" => "seekers#new", as: :signup_seeker
+post "seekers" => "seekers#create"
+get "seekers" => "seekers#index"
   
+# Employers routes
+get "signup_employer" => "employers#new", as: :signup_employer
+post "employers" => "employers#create"
+get "employers" => "employers#index"
+  
+
+
+#log in routes
+get '/login'     => 'sessions#new'
+post '/login'    => 'sessions#create'
+delete '/logout' => 'sessions#destroy'  
 end
