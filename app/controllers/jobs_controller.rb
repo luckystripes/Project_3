@@ -6,7 +6,6 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def new
-    # @job_type = Job.all.map{|type| [job.job_type, job.id]}
     @job = Job.new
   end
   # ----------------------------------------------------------
@@ -18,7 +17,6 @@ class JobsController < ApplicationController
 
   def create
     @job = current_user.jobs.new(jobs_params)
-
     if @job.save
       redirect_to @job
     else
