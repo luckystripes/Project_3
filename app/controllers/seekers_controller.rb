@@ -7,6 +7,10 @@ class SeekersController < ApplicationController
     @seeker = Seeker.find(params[:id])
   end
 
+  def show_all
+    @seeker = Seeker.find(params[:id])
+  end
+    
 	def new
     @seeker = Seeker.new
   end
