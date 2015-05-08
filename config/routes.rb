@@ -17,8 +17,7 @@ get "seekers" => "seekers#index"
 get "seekers/:id" => "seekers#show", as: :seeker
 get "seekers/:id/edit" => "seekers#edit", as: :edit_seeker
 patch "seekers/:id" => "seekers#update"
-#!!!!! Not sure if this right, need to ask Conrad
-get "seekers/:id/match" => "seekers#show_all"
+get "seekers/:id/show_all" => "seekers#show_all"
   
 # Employers routes
 get "signup_employer" => "employers#new", as: :signup_employer
