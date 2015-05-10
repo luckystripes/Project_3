@@ -1,5 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Job, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Job do
+  it "has a valid factory" do
+    job=FactoryGirl.create(:job)
+    expect(job.valid?).to eq (true)
+  end
 end
+
+
+
+

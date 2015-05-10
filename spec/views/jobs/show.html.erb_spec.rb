@@ -1,5 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "jobs/show.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+
+# describe 'jobs/show.html.erb' do
+#   it "displays job info" do
+    
+#     job = FactoryGirl.build_stubbed(:job)
+  
+#     response.should include_text("Cleaner")
+# end
+
+  
+
+  
+
