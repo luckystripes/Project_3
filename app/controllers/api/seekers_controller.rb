@@ -19,11 +19,23 @@ module API
 	      	#? render :new
 	    #end
   	#end
-
+  	#def update #this action saves the change in the database.
+	    #@seeker = Seeker.find(params[:id]) #retrives a single record
+	    #if @seeker.update_attributes(seeker_edit_params)  #If a record is successfully updated, redirect to the reports index.  
+	      #head 204
+	      #? redirect_to seekers_path
+	    #? else
+	      #render json: seeker.errors, status: 422
+	      #? render :edit  
+	    #end
+  	#end
 	  #private
 		  #def seeker_params
 		    #params.require(:seeker).permit(:first_name, :last_name, :email, :password, :password_confirmation)
 		  #end
+		  #def seeker_edit_params
+    		#params.require(:seeker).permit(:first_name, :last_name, :email, :phone, :job_type, :skill_set, :edu_level, :work_exp, :date_available, :address, :city, :state, :zipcode,:password, :password_confirmation, )
+  		#end
 		#end 
 	# end #end of Controller
 

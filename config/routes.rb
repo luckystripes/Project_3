@@ -24,6 +24,7 @@ get "seekers/:id/show_all" => "seekers#show_all"
   #get "seekers" => "seekers#index"
   #get "seekers/:id" => "seekers#show", as: :seeker
   #post "seekers" => "seekers#create"
+  #patch "seekers/:id" => "seekers#update"
 #end
  
 # Employers routes
