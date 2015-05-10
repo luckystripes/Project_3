@@ -23,6 +23,7 @@ get "seekers/:id/show_all" => "seekers#show_all"
 #namespace :api do
   #get "seekers" => "seekers#index"
   #get "seekers/:id" => "seekers#show", as: :seeker
+  #post "seekers" => "seekers#create"
 #end
  
 # Employers routes
