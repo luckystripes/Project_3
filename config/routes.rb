@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 get "signup_seeker" => "seekers#new", as: :signup_seeker
 post "seekers" => "seekers#create"
 get "seekers" => "seekers#index" # will need to remove this once we have a front end.  
-get "seekers/:id" => "seekers#show", as: :seeker
+get "seekers/:id" => "seekers#show", as: :seeker# will need to remove this once we have a front end.  
 get "seekers/:id/edit" => "seekers#edit", as: :edit_seeker
 patch "seekers/:id" => "seekers#update"
 get "seekers/:id/show_all" => "seekers#show_all"
@@ -22,6 +22,7 @@ get "seekers/:id/show_all" => "seekers#show_all"
 # Seeker API routes, need to activate these once the front end is ready to consume them...
 #namespace :api do
   #get "seekers" => "seekers#index"
+  #get "seekers/:id" => "seekers#show", as: :seeker
 #end
  
 # Employers routes
