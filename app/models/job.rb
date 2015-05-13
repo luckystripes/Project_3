@@ -1,4 +1,7 @@
 class Job < ActiveRecord::Base
 	belongs_to :employer, foreign_key: 'user_id'
-  belongs_to :category
+
+	has_many :matches
+	has_many :seekers, through: :matches
+
 end
