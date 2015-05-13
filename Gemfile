@@ -48,6 +48,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+gem 'paperclip', '~> 4.2'
 
 gem 'carrierwave'
 
