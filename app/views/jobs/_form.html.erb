@@ -1,6 +1,10 @@
 <div>
 	<%= form_for @job do |f| %>
-
+	<div>
+	<%= f.select :job_type, options_for_select([["education"], ["office"], ["customer service"], ["skill trade"], ["general labor"], ["other"]]) %>
+	</div>
+<!-- drop down category -->
+	
 <!-- form input -->
 
  	<div class="form-group">

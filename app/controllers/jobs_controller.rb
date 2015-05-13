@@ -1,7 +1,9 @@
 class JobsController < ApplicationController
+
+  before_action :find_job, only:[:show, :edit, :update, :destroy]
   
   def index
-    @jobs = Job.all.order("created_at DESC")
+     @jobs = Job.all
   end
   # ----------------------------------------------------------
 
@@ -16,8 +18,8 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def create
-    # @job = current_user.job.new(jobs_params)
-    @job = Job.new(params.require(:job).permit(:title, :job_type, :salary, :skill, :location))
+    @job = Job.new(jobs_params)
+   
     if @job.save
       redirect_to @job
     else
