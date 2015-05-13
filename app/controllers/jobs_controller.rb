@@ -13,7 +13,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def show
-    find_job
+    # find_job
   end
   # ----------------------------------------------------------
 
@@ -29,7 +29,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def edit
-   find_job
+   # find_job
 
     # unless logged_in? && current_user == @job.user_id
     # 	not_logged_in
@@ -38,7 +38,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def update
-    if find_job.update(jobs_params)
+    if @job.update(jobs_params)
       redirect_to @job
     else
       render "Edit"
@@ -48,7 +48,7 @@ class JobsController < ApplicationController
 
   def destroy
   	# if logged_in? && current_user.id==@job.user_id
-			find_job.destroy
+			@job.destroy
 			redirect_to root_path
 	# 	else
 	# 		not_logged_in
