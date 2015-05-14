@@ -44,6 +44,6 @@ private
     params.require(:seeker).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
   end
   def seeker_edit_params
-    params.require(:seeker).permit(:first_name, :last_name, :email, :phone, :job_type, :skill_set, :edu_level, :work_exp, :date_available, :address, :city, :state, :zipcode,:password, :password_confirmation, )
+    params.require(:seeker).permit(:first_name, :last_name, :email, :phone, :job_type, :skill_set, :edu_level, :work_exp, :date_available, :address, :city, :state, :zipcode,:password, :password_confirmation, :avatar)
   end
 end #end of controller
