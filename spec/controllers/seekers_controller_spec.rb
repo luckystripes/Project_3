@@ -17,7 +17,7 @@ RSpec.describe SeekersController, type: :controller do
 #-------------------------------------------------------------------------------
 	describe "GET #show" do
 	    before :each do
-	    	@seeker1 = Seeker.create(:first_name "John", :last_name "Thomas", :email "John@example.com", :phone"555-555-5555", :job_type"painter")
+	    	@seeker1 = Seeker.create(first_name: "John", last_name: "Thomas", email: "John@example.com", phone:"555-555-5555", job_type: "painter")
 	    	get :show, id: @seeker1
 	    end
 	    it "should render the correct page" do
