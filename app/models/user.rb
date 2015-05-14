@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "https://dov5cor25da49.cloudfront.net/products/4038/636x460design_01.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
   has_secure_password
