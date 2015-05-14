@@ -1,5 +1,4 @@
-Rails.application.routes.draw do
-# JOBS ROUTES
+
 root 'jobs#index'
 get '/jobs' => 'job#index'
 post '/jobs' => 'jobs#create'
