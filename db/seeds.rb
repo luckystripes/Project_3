@@ -167,8 +167,8 @@ Match.destroy_all
 
 @last_names  = %w(Harris Rodriguez Garzon Thomas Cerny Herman Higgins Bryan Ma Sze Langley)
 
-@job_type = %w(education office customer_service skill_trade general_laber other)
-
+@job_type = ["education", "office", "customer service", "skill trade", "general labor", "other"]
+	
 @title = %w(roofer secretary tutor cashier handy_person)
 
 @skill = %W(math english ruby chinese designing repairing Java)
