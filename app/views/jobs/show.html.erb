@@ -1,8 +1,9 @@
 <div>
 	<h1><%= @job.title %></h1>
-	<p><%= @job.location %></p>
-	<p>$ <%= @job.salary %></p>
-	<p><%= @job.skill %></p>
+	<p>Job Type: <%= @job.job_type %></p>
+	<p>Location: <%= @job.location %></p>
+	<p>Pay: $<%= @job.salary %></p>
+	<p>Skills Needed: <%= @job.skill %></p>
 </div>
 <div><%= link_to "Home", root_path %></div>
 <div><%= link_to "Edit", edit_job_path(@job) %></div>

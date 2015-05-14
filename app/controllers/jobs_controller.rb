@@ -1,7 +1,9 @@
 class JobsController < ApplicationController
+
+  before_action :find_job, only:[:show, :edit, :update, :destroy]
   
   def index
-    @jobs = Job.all.order("created_at DESC")
+     @jobs = Job.all
   end
   # ----------------------------------------------------------
 
@@ -11,13 +13,13 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def show
-    find_job
+    # find_job
   end
   # ----------------------------------------------------------
 
   def create
-    # @job = current_user.job.new(jobs_params)
-    @job = Job.new(params.require(:job).permit(:title, :job_type, :salary, :skill, :location))
+    @job = Job.new(jobs_params)
+   
     if @job.save
       redirect_to @job
     else
@@ -27,7 +29,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def edit
-   find_job
+   # find_job
 
     # unless logged_in? && current_user == @job.user_id
     # 	not_logged_in
@@ -36,7 +38,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def update
-    if find_job.update(jobs_params)
+    if @job.update(jobs_params)
       redirect_to @job
     else
       render "Edit"
@@ -46,7 +48,7 @@ class JobsController < ApplicationController
 
   def destroy
   	# if logged_in? && current_user.id==@job.user_id
-			find_job.destroy
+			@job.destroy
 			redirect_to root_path
 	# 	else
 	# 		not_logged_in
