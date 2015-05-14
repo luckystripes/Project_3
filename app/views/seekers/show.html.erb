@@ -10,7 +10,7 @@
 	<p><strong>Education level: </strong><%= @seeker.edu_level  %></p>
 	<p><strong>Work experience: </strong><%= @seeker.work_exp  %></p>
 	<p><strong>Date available: </strong><%= @seeker.date_available  %></p>
-	<p><strong>Profile_pic </strong></p>
+	<p><strong>Profile Picture:" <%= image_tag @seeker.avatar.url(:medium) %></strong></p>
 
 	<button class="btn btn-success btn-block" >Hire</button>
 	<button class="btn btn-danger btn-block" >Pass</button>
