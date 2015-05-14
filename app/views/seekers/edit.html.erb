@@ -4,7 +4,7 @@
 
       <h1>Edit your profile</h1>
 
-      <%= form_for(@seeker, url: {controller: "seekers", action: "update"}) do |f| %>
+      <%= form_for(@seeker, url: {controller: "seekers", action: "update"},:html => { :multipart => true }) do |f| %>
 
       <% if @seeker.errors.any? %>
        <div>
@@ -18,6 +18,11 @@
         </ul>        
        </div>
        <% end %>
+
+        <div class="form-group">
+          <%= f.label :avatar, "Profile Picture" %>
+          <%= f.file_field :avatar, class: "form-control" %>
+        </div>
       
         <div class="form-group">
           <%= f.label :first_name %>
@@ -82,6 +87,7 @@
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
+
         <%= f.submit "Edit your profile", class: "btn btn-primary" %>
         
       <% end %>
