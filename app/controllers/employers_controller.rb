@@ -33,10 +33,10 @@ class EmployersController < ApplicationController
 
 private
  def employer_params
-    params.require(:employer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:employer).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
   end
 
  def employer_edit_params
-  params.require(:employer).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :address, :city, :state, :zipcode, :company_name)
+  params.require(:employer).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :address, :city, :state, :zipcode, :company_name, :avatar)
   end
 end
