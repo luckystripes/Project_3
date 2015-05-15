@@ -26,8 +26,14 @@ describe User do
     user=FactoryGirl.build_stubbed(:user, email: nil)
     expect(user).to be_invalid
   end
+#-----------------------------------------------    
+  it "is invalid without a jobtype" do
+    user=FactoryGirl.build_stubbed(:user, job_type: nil)
+    expect(user).to be_invalid
+  end
 
 
 
-  
+
+
 end

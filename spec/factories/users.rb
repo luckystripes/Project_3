@@ -4,5 +4,6 @@ FactoryGirl.define do
     f.last_name "Mango"
     f.email "jimmy@mango.com"
     f.password "pppppp" 
+    f.job_type "roofer"
   end 
 end 
