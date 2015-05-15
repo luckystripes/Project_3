@@ -6,13 +6,13 @@ describe User do
     expect(user).to eq (true)
   end
 #-----------------------------------------------  
-  it "is invalid without a firstname" do
+  it "is invalid without a first name" do
     user=FactoryGirl.build_stubbed(:user, first_name: nil)
     expect(user).to be_invalid
 
   end
 #-----------------------------------------------    
-  it "is invalid without a lastname" do
+  it "is invalid without a last name" do
     user=FactoryGirl.build_stubbed(:user, last_name: nil)
     expect(user).to be_invalid
   end
