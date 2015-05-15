@@ -34,34 +34,37 @@ rect {
           .attr("width", w)
           .attr("height", h);
 
-      svg.selectAll("rect")
+          d3.json("http://localhost:3000/front.json",function(data){
+          
+          svg.selectAll("rect")
           .data(d3.range(x * y))
-        .enter().append("rect")
+          .enter().append("rect")
           .attr("transform", translate)
           .attr("width", z)
           .attr("height", z)
           .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
           .on("mouseover", mouseover);
 
-      function translate(d) {
-        return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
-      }
+          function translate(d) {
+            return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
+          }
 
-      function mouseover(d) {
-        this.parentNode.appendChild(this);
+          function mouseover(d) {
+            this.parentNode.appendChild(this);
 
-        d3.select(this)
+            d3.select(this)
             .style("pointer-events", "none")
-          .transition()
+            .transition()
                 .delay(100)  //mouseover delay to the action
 
             .duration(1050) //how long it takes to rotate over to show position
             .attr("transform", "translate(480,480)scale(23)rotate(180)")
-          .transition()
+            .transition()
             .delay(4500)
             .attr("transform", "translate(240,240)scale(0)")
             .style("fill-opacity", 0)
             .remove();
-      }
+          }
+         });
       </script>
 </body>
