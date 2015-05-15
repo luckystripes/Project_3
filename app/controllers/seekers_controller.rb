@@ -1,10 +1,11 @@
 class SeekersController < ApplicationController
 	def index
-		
+		 @seeker = current_user
 	end
 
   def show
     @seeker = Seeker.find(params[:id])
+    @jobs = Job.picked?(@seeker)
   end
 
   def show_all

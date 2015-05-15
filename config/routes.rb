@@ -35,6 +35,11 @@ get "employers/:id/edit" => "employers#edit", as: :edit_employer
 put "employers/:id" => "employers#update", as: :employer
 patch "employers/:id" => "employers#update"
 
+# Match routes
+
+post "matches" => "matches#create", as: :matches
+put "matches/:id" => "matches#update", as: :match
+patch "matches/:id" => "matches#update"
   
 
 #log in routes

@@ -13,7 +13,8 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def show
-    # find_job
+    @job = Job.find(params[:id])
+    @seekers = Seeker.picked?(@job)
   end
   # ----------------------------------------------------------
 
