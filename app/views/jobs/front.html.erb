@@ -1,44 +1,32 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>Transform Transitions</title>
+
 <style>
-h1{
-color: blue;
-font-size: 50px;
 
-}
- body {
-    margin: 0;
-    background-image: url("assets/cashier.jpg");
-    position: absolute;
-    left: 50px;
-    top: 0px;
-  }
+    rect {
+      stroke: #fff;
+      stroke-width: .1px;
+    }
 
-rect {
-    stroke: #fff;
-    stroke-width: .1px;
-  }
 </style>
-<body>
-<h1>Linkder</h1>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
+
       <script>
-      var w = 520,
+      
+          d3.json("/jobs.json",function(data){
+          console.log(data);
+
+          var w = 520,
           h = 520,
           z = 20,
           x = w / z,
           y = h / z;
 
-      var svg = d3.select("body").append("svg")
+          var svg = d3.select("body").append("svg")
           .attr("width", w)
           .attr("height", h);
 
-          d3.json("http://localhost:3000/front.json",function(data){
-          
           svg.selectAll("rect")
           .data(d3.range(x * y))
-          .enter().append("rect")
+          .enter()
+          .append("rect")
           .attr("transform", translate)
           .attr("width", z)
           .attr("height", z)
@@ -67,4 +55,3 @@ rect {
           }
          });
       </script>
-</body>

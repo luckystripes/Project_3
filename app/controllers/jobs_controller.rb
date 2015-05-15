@@ -3,8 +3,11 @@ class JobsController < ApplicationController
   before_action :find_job, only:[:show, :edit, :update, :destroy]
   
   def index
-     @jobs = Job.all
-     render json: Job.all
+    @jobs = Job.all
+    respond_to do |format|
+        format.html { render 'front' }
+        format.json { render json: Job.all}
+      end
   end
   # ----------------------------------------------------------
 
