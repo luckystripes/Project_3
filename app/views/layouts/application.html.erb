@@ -6,30 +6,38 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="bg-info">
+<body>
 
+<!----------------------------- LOGO  ---------------------->
 <div class="ui leaderboard test ad" data-text="Leaderboard">
   <h1 class="ui header">Lindker</h1>
-  <img class="ui small image" src="assets/images/trex.png">
+  <%= image_tag("trex.png") %>
 </div>
 <!----------------------------- LOGIN  ---------------------->
-    <% if logged_in? %>
-    <div class="container">
-    <br>
-  <div class="row">
-    <div class="col-md-3">
+  <% if logged_in? %>
+    <div>
       Logged in as: <%= current_user.first_name %> | 
      <%= link_to 'Log Out', logout_path, method: :delete %>
      
 		</div>
-		</div>
-    </div>
-    <% end %>
-
-
-<!----------------------------- NAVBAR  ---------------------->
-  <div class="ui inverted menu navbar">
+    <% if current_user.employer? %>
+    <div class="ui inverted menu navbar">
       <a href="" class="item">Add Job</a>
+      <!-- <a href="" class="item">Browse Job</a> -->
+        <div class="right menu">
+          <a class="ui dropdown item">Profile
+          <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">Matched</div>
+              <div class="item">Settings</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <% else %>
+    <div class="ui inverted menu navbar">
+      <!-- <a href="" class="item">Add Job</a> -->
       <a href="" class="item">Browse Job</a>
         <div class="right menu">
           <a class="ui dropdown item">Profile
@@ -40,8 +48,15 @@
             </div>
           </a>
         </div>
-  </div>
-        
+      </div>
+      <% end %>
+
+    <% end %>
+  
+
+
+
+
 
 <%= yield %>
 
