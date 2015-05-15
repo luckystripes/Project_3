@@ -17,7 +17,7 @@ RSpec.describe SeekersController, type: :controller do
 #-------------------------------------------------------------------------------
 	describe "GET #show" do
 	    before :each do
-	    	@seeker1 = Seeker.create(first_name: "John", last_name: "Thomas", email: "John@example.com", phone:"555-555-5555", job_type: "painter",password: "password", password_confirmation: "password")
+	    	@seeker1 = Seeker.create(first_name: "John", last_name: "Thomas", email: "John@example.com", phone:"555-555-5555", job_type: "painter",password: "password", password_confirmation: "password", zipcode: "90039", date_available: "05/15", skill_set: "roofer", work_exp: "10")
 	    	get :show, id: @seeker1
 	    end
 	    it "should render the correct page" do
@@ -46,7 +46,7 @@ RSpec.describe SeekersController, type: :controller do
 #-------------------------------------------------------------------------------
   describe "POST #create" do
     it "persists an item to the DB" do
-      expect{Seeker.create(first_name: "John", last_name: "Thomas", email: "John@example.com", phone:"555-555-5555", job_type: "painter",password: "password", password_confirmation: "password")}.to change(Seeker, :count).by(1)
+      expect{Seeker.create(first_name: "John", last_name: "Thomas", email: "John@example.com", phone:"555-555-5555", job_type: "painter",password: "password", password_confirmation: "password", zipcode: "90039", date_available: "05/15", skill_set: "roofer", work_exp: "10")}.to change(Seeker, :count).by(1)
     end
   end
 #-------------------------------------------------------------------------------
