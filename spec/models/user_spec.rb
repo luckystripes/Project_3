@@ -7,18 +7,27 @@ describe User do
   end
 #-----------------------------------------------  
   it "is invalid without a firstname" do
-    user=FactoryGirl.create(:user, first_name: nil)
-    expect(user.first_name).to be_invalid
+    user=FactoryGirl.build_stubbed(:user, first_name: nil)
+    expect(user).to be_invalid
 
   end
 #-----------------------------------------------    
   it "is invalid without a lastname" do
-    user=FactoryGirl.create(:user, last_name: nil)
-    expect(user.last_name).to be_invalid
+    user=FactoryGirl.build_stubbed(:user, last_name: nil)
+    expect(user).to be_invalid
   end
 #-----------------------------------------------    
   it "is invalid without a password" do
-    user=FactoryGirl.create(:user, password: nil)
-    expect(user.password).to be_invalid
+    user=FactoryGirl.build_stubbed(:user, password: nil)
+    expect(user).to be_invalid
   end
+#-----------------------------------------------    
+  it "is invalid without a email" do
+    user=FactoryGirl.build_stubbed(:user, email: nil)
+    expect(user).to be_invalid
+  end
+
+
+
+  
 end
