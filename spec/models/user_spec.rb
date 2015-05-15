@@ -31,9 +31,25 @@ describe User do
     user=FactoryGirl.build_stubbed(:user, job_type: nil)
     expect(user).to be_invalid
   end
-
-
-
-
+#-----------------------------------------------    
+  it "is invalid without a zipcode" do
+    user=FactoryGirl.build_stubbed(:user, zipcode: nil)
+    expect(user).to be_invalid
+  end
+#-----------------------------------------------    
+  it "is invalid without a date_available" do
+    user=FactoryGirl.build_stubbed(:user, date_available: nil)
+    expect(user).to be_invalid
+  end
+#-----------------------------------------------    
+  it "is invalid without a skill_set" do
+    user=FactoryGirl.build_stubbed(:user, skill_set: nil)
+    expect(user).to be_invalid
+  end
+#-----------------------------------------------    
+  it "is invalid without a work_exp" do
+    user=FactoryGirl.build_stubbed(:user, work_exp: nil)
+    expect(user).to be_invalid
+  end
 
 end
