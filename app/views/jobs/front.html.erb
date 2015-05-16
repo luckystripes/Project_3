@@ -6,52 +6,31 @@
       stroke-width: .1px;
     }
 
+    .job {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .title{
+      color: black;
+      font-weight: bold;
+    }
+
+    .skill{
+      color: grey;
+    }
+
 </style>
-
+  
+<div class="container ui nine cards"></div>
+<h1>Hover over me</h1>
       <script>
-      
-          d3.json("/jobs.json",function(data){
-          console.log(data);
-
-          var w = 520,
-          h = 520,
-          z = 20,
-          x = w / z,
-          y = h / z;
-
-          var svg = d3.select("body").append("svg")
-          .attr("width", w)
-          .attr("height", h);
-
-          svg.selectAll("rect")
-          .data(d3.range(x * y))
-          .enter()
-          .append("rect")
-          .attr("transform", translate)
-          .attr("width", z)
-          .attr("height", z)
-          .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
-          .on("mouseover", mouseover);
-
-          function translate(d) {
-            return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
-          }
-
-          function mouseover(d) {
-            this.parentNode.appendChild(this);
-
-            d3.select(this)
-            .style("pointer-events", "none")
-            .transition()
-                .delay(100)  //mouseover delay to the action
-
-            .duration(1050) //how long it takes to rotate over to show position
-            .attr("transform", "translate(480,480)scale(23)rotate(180)")
-            .transition()
-            .delay(4500)
-            .attr("transform", "translate(240,240)scale(0)")
-            .style("fill-opacity", 0)
-            .remove();
-          }
-         });
+     
+      $.get("/jobs.json",function(data){
+        console.log(data);
+        data.forEach(function(el){
+          $('.container').append('<div class="blue card"><div class="content"><div class="header">'+el.title+'</div><div class="meta">'+el.skill+'</div></div></div>');
+        });
+      });
+         
       </script>
