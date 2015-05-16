@@ -22,16 +22,31 @@
 
 </style>
  
+<script src="../../javascripts/jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="/lib/jquery.bxslider.css" rel="stylesheet" />
+
 <h1>Recent Jobs Added:</h1>  
-<div class="container ui nine cards"></div>
+<ul class="container ui nine cards bxslider"></ul>
+
+
+
+
       <script>
      
       $.get("/jobs.json",function(data){
         console.log(data);
         data.forEach(function(el){
-          var content = '<div class="green card"><div class="content"><div class="header">'+el.title+'</div><div class="meta">'+el.skill+'</div></div></div>';
-          $('.container').append(content);
+          var content = '<li class="green card"><div class="content"><div class="header">'+el.title+'</div><div class="meta">'+el.skill+'</div></div></li>';
+          $('.container').append(content)
+
         });
       });
-         
+      $(document).ready(function(){
+    $('.bxslider').bxSlider({
+            ticker: true,
+            speed: 40000
+            });
+    });
+
       </script>
