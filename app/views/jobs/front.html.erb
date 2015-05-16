@@ -4,6 +4,10 @@
     margin: auto;
   } 
 
+  body{
+  background-color: grey;
+  }
+
   rect {
     stroke: #fff;
     stroke-width: .1px;
@@ -39,9 +43,9 @@
 <link href="/lib/jquery.bxslider.css" rel="stylesheet" />
 
 <div class="body_div"><h1>LINKDER</h1></div>
-  <button>Log in</button>
-  <button>Sign up as a Job Seeker</button>
-  <button>Sign up as an Employer</button>
+  <button class="ui inverted green button">Log in</button>
+  <button class="ui inverted blue button">Sign up as a Job Seeker</button>
+  <button class="ui inverted blue button">Sign up as an Employer</button>
   <h1>Recent Jobs Added:</h1>
     <ul class="container ui nine cards bxslider"></ul>
           <script>
@@ -53,7 +57,7 @@
                  });
             });
           </script>
-          
+
           <script>
              $(document).ready(function(){
                 $('.body_div').fadeOut(2500);
