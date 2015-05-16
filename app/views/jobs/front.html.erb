@@ -21,15 +21,16 @@
     }
 
 </style>
-  
+ 
+<h1>Recent Jobs Added:</h1>  
 <div class="container ui nine cards"></div>
-<h1>Hover over me</h1>
       <script>
      
       $.get("/jobs.json",function(data){
         console.log(data);
         data.forEach(function(el){
-          $('.container').append('<div class="blue card"><div class="content"><div class="header">'+el.title+'</div><div class="meta">'+el.skill+'</div></div></div>');
+          var content = '<div class="green card"><div class="content"><div class="header">'+el.title+'</div><div class="meta">'+el.skill+'</div></div></div>';
+          $('.container').append(content);
         });
       });
          
