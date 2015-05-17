@@ -1,18 +1,18 @@
-<% if (@jobs.count == 0) %>
+<% if (@job == nil) %>
 
 We do not have any potential job matches currently for you, please check back later.  
 
 <% else %>
 
 <div>
-	<h1><%= @jobs.last.title %></h1>
-	<p>Job Type: <%= @jobs.last.job_type %></p>
-	<p>Location: <%= @jobs.last.location %></p>
-	<p>Pay: $<%= @jobs.last.salary %></p>
-	<p>Skills Needed: <%= @jobs.last.skill %></p>
+	<h1><%= @job.title %></h1>
+	<p>Job Type: <%= @job.job_type %></p>
+	<p>Location: <%= @job.location %></p>
+	<p>Pay: $<%= @job.salary %></p>
+	<p>Skills Needed: <%= @job.skill %></p>
 </div>
 
-<%= link_to "like", matches_path(:seeker_response => { user_accept: true, user_id: current_user.id, job_id: @jobs.last.id}) ,method: :post, class: "btn btn-success btn-block"%>
-<%= link_to "skip", matches_path(:seeker_response => { :user_accept => false, :user_id => current_user.id, :job_id => @jobs.last.id}) ,method: :post, class: "btn btn-danger btn-block"%>
+<%= link_to "like", matches_path(:response => { user_accept: true, user_id: current_user.id, job_id: @job.id}) ,method: :post, class: "btn btn-success btn-block"%>
+<%= link_to "skip", matches_path(:response => { :user_accept => false, :user_id => current_user.id, :job_id => @job.id}) ,method: :post, class: "btn btn-danger btn-block"%>
 
 <%end%>

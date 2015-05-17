@@ -14,7 +14,13 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @seekers = Seeker.picked?(@job)
+    @match = Match.where(user_accept: true, job_accept: nil, job_id: @job.id).first
+    
+    if (@match==nil)
+      @seeker = Seeker.picked?(@job).first
+    else 
+      @seeker = @match.job
+    end
   end
   # ----------------------------------------------------------
 
