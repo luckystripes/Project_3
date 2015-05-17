@@ -1,10 +1,8 @@
- <div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-2">
 
-      <h1>Edit your profile</h1>
 
-      <%= form_for(@seeker, url: {controller: "seekers", action: "update"},:html => { :multipart => true }) do |f| %>
+   <%= form_for(@seeker,  url: {controller: "seekers", action: "update"},:html => {:class => 'ui form segment', :multipart => true }) do |f| %>
+
+  <h4 class="ui dividing header">Edit Your Profile</h4>
 
       <% if @seeker.errors.any? %>
        <div>
@@ -19,78 +17,88 @@
        </div>
        <% end %>
 
-        <div class="form-group">
-          <%= f.label :avatar, "Profile Picture" %>
-          <%= f.file_field :avatar, class: "form-control" %>
-        </div>
-      
-        <div class="form-group">
-          <%= f.label :first_name %>
-          <%= f.text_field :first_name, class: "form-control" %>
-        </div>
 
-        <div class="form-group">
+    <div class="two fields">
+          <div class="field">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name%>
+          </div>
+          <div class="field">
           <%= f.label :last_name %>
-          <%= f.text_field :last_name, class: "form-control" %>
-        </div>
+          <%= f.text_field :last_name%>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.text_field :email, class: "form-control" %>
-        </div>
-        <div class="form-group">
+
+          <div class="field">
+          <div class="field">
+        <%= f.label :job_type %>
+         <%= f.select :job_type, options_for_select([["education"], ["office"], ["customer service"], ["skill trade"], ["general labor"], ["other"]]) , class: "ui dropdown"%>
+      </div>
+        <div class="field">
           <%= f.label :phone %>
-          <%= f.text_field :phone, class: "form-control" %>
+          <%= f.text_field :phone %>
         </div>
-        <div class="form-group">
-          <%= f.label :job_type %>
-          <%= f.text_field :job_type, class: "form-control" %>
-        </div>
-        <div class="form-group">
+        <div class="field">
           <%= f.label :skill_set %>
-          <%= f.text_field :skill_set, class: "form-control" %>
+          <%= f.text_field :skill_set %>
         </div>
-        <div class="form-group">
+        <div class="field">
           <%= f.label :edu_level %>
-          <%= f.text_field :edu_level, class: "form-control" %>
+          <%= f.text_field :edu_level %>
         </div>
-        <div class="form-group">
+        <div class="field">
           <%= f.label :work_exp %>
-          <%= f.text_field :work_exp, class: "form-control" %>
+          <%= f.number_field :work_exp %>
         </div>
-        <div class="form-group">
+        <div class="three field">
           <%= f.label :date_available %>
-          <%= f.text_field :date_available, class: "form-control" %>
+          <%= f.text_field :date_available %>
         </div>
-        <div class="form-group">
+        <div class="field">
           <%= f.label :address %>
-          <%= f.text_field :address, class: "form-control" %>
+          <%= f.text_field :address %>
         </div>
-        <div class="form-group">
+        </div>
+        </div>
+        <div class="three fields">
+
+        <div class="field">
           <%= f.label :city %>
-          <%= f.text_field :city, class: "form-control" %>
+          <%= f.text_field :city %>
         </div>
-        <div class="form-group">
+        <div class="field">
           <%= f.label :state %>
-          <%= f.text_field :state, class: "form-control" %>
+          <%= f.text_field :state %>
         </div>
-        <div class="form-group">
+        <div class="field">
           <%= f.label :zipcode %>
-          <%= f.text_field :zipcode, class: "form-control" %>
+          <%= f.text_field :zipcode %>
         </div>
-        <div class="form-group">
+        </div>
+
+        <h4 class="ui dividing header">Account Info</h4>
+    <div class="two fields">
+
+    <div class="field">
+    <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email%>
+    </div>
+    <div class="field">
           <%= f.label :password %>
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
-
-        <div class="form-group">
+          <%= f.password_field :password%>
+    </div>
+    <div class="field">
           <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
-        </div>
+          <%= f.password_field :password_confirmation%>
+    </div>
+    </div>
 
-        <%= f.submit "Edit your profile", class: "btn btn-primary" %>
+    </div>
+
+
+
+
+      <%= f.submit "Edit your profile", class: "ui blue submit button" %>
         
       <% end %>
-    </div>
-  </div>
-</div>
