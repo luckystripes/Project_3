@@ -1,6 +1,7 @@
 class SeekersController < ApplicationController
 	def index
 		 @seeker = current_user
+     @jobs = @seeker.matched_jobs
 	end
 
   def show

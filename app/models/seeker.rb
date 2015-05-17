@@ -6,6 +6,8 @@ class Seeker < User
 	 where(job_type: job.job_type).includes(:matches).where(matches: {user_accept: nil, job_accept:nil})
   	end
 
-
+  	def matched_jobs
+  		self.jobs.includes(:matches).where(matches: {user_accept: true, job_accept: true})
+  	end
 
 end

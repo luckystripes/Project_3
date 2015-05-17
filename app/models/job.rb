@@ -5,10 +5,13 @@ class Job < ActiveRecord::Base
 	has_many :seekers, through: :matches
 
 
-  def self.picked?(seeker)
+    def self.picked?(seeker)
 	 where(job_type: seeker.job_type).includes(:matches).where(matches: {user_accept: nil, job_accept:nil})
-  end
+    end
 
+  	def matched_seekers
+  		self.seekers.includes(:matches).where(matches: {user_accept: true, job_accept: true})
+  	end
 
 	validates :title, presence: true 
 	validates :job_type, presence: true 
