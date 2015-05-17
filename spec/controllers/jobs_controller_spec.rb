@@ -38,7 +38,7 @@ RSpec.describe JobsController, type: :controller do
   # ------------------------------------------------
   describe "POST #create" do
     it "persists an item to the DB" do
-      expect {Job.create}.to change(Job, :count).by(1)
+      expect {Job.create(title: "cleaner", job_type: "part time", salary: "8.00", skill: "cleans well", location: "venice")}.to change(Job, :count).by(1)
     end
   end
   # ------------------------------------------------
@@ -70,7 +70,7 @@ RSpec.describe JobsController, type: :controller do
 
   describe "DELETE #destroy" do
     before :each do
-      @test_job = Job.create
+      @test_job = Job.create(title: "cleaner", job_type: "part time", salary: "8.00", skill: "cleans well", location: "venice")
       get :index
     end
 

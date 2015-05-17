@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 # JOBS ROUTES
 root 'jobs#index'
-get '/jobs' => 'job#index'
+get '/jobs' => 'jobs#index'
 post '/jobs' => 'jobs#create'
 get 'jobs/new' => 'jobs#new', as: :new_job
 get 'jobs/:id/edit' => 'jobs#edit', as: :edit_job
