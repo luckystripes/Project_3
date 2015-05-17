@@ -43,7 +43,7 @@
       <!-- <a href="" class="item">Add Job</a> -->
       <%= image_tag("lindker_logo", class: "ui small rounded image item") %>
           <a class="item">Logged in as: <%= current_user.first_name %></a>
-      <%= link_to 'Browse Job', seeker_path , class: "item"%>
+      <%= link_to 'Browse Job', seeker_path(current_user) , class: "item"%>
         <div class="right menu">
           <div class="ui dropdown item">Profile
           <i class="dropdown icon"></i>
