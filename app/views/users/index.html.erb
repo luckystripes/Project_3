@@ -30,15 +30,29 @@
   .body_div{
     height:100%;
     width:100%;
-    background-color:#ADD8E6;
+    /*background-color:#ADD8E6;*/
     border-radius:5px;
     margin-bottom:5px;
     z-index: 10px;
   }
 
+  #gradient {
+        /* fallback color */
+        background-color: #66cccc; 
+        /* Firefox 3.6+ */
+        background-image: -moz-linear-gradient(#336666, #66cccc);
+        /* Safari 4+, Chrome 1+ */
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66cccc), to(#336666));
+        /* Safari 5.1+, Chrome 10+ */
+        background-image: -webkit-linear-gradient(#336666, #66cccc); 
+        /* Opera 11.10+ */
+        background-image: -o-linear-gradient(#336666, #66cccc);
+        height: 100%;
+        width: 100%;}
+ 
 </style>
  
-<div class="body_div"><h1>LINKDER</h1></div>
+<div class="body_div two column centered grid" id="gradient"><%=image_tag("lindker_logo.png", class: "ui medium rounded centered massive image center four column centered row") %></div>
   <button class="ui inverted green button">Log in</button>
   <button class="ui inverted blue button">Sign up as a Job Seeker</button>
   <button class="ui inverted blue button">Sign up as an Employer</button>
@@ -54,8 +68,8 @@
             });
           </script>
 
-          <script>
+           <script>
              $(document).ready(function(){
-                $('.body_div').fadeOut(2500);
-              });
-          </script>
+                 $('.body_div').fadeOut(3000);
+               });
+           </script>
