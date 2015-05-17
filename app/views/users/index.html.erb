@@ -38,16 +38,12 @@
 
 </style>
  
-<script src="../../javascripts/jquery.bxslider.min.js"></script>
-<!-- bxSlider CSS file -->
-<link href="/lib/jquery.bxslider.css" rel="stylesheet" />
-
 <div class="body_div"><h1>LINKDER</h1></div>
   <button class="ui inverted green button">Log in</button>
   <button class="ui inverted blue button">Sign up as a Job Seeker</button>
   <button class="ui inverted blue button">Sign up as an Employer</button>
   <h1>Recent Jobs Added:</h1>
-    <ul class="container ui nine cards bxslider"></ul>
+    <ul class="container ui nine cards"></ul>
           <script>
             $.get("/jobs.json",function(data){
               console.log(data);
