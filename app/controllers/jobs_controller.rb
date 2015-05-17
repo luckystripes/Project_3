@@ -1,13 +1,13 @@
 class JobsController < ApplicationController
 
-  before_action :find_job, only:[:index, :show, :edit, :update, :destroy]
+  before_action :find_job, only:[:show_matches, :show, :edit, :update, :destroy]
   
   def index
-    # @jobs = Job.all
-    # respond_to do |format|
-    #     format.html { render 'front' }
-    #     format.json { render json: Job.all[1..9]}
-    #   end
+    @jobs = Job.all
+    respond_to do |format|
+        format.html { render 'front' }
+        format.json { render json: Job.all[1..9]}
+      end
   
 
   end
@@ -30,12 +30,15 @@ class JobsController < ApplicationController
   end
   
   # ----------------------------------------------------------
+  def show_matches
+    
+  end
 
   def create
     @job = Job.new(jobs_params)
    
     if @job.save
-      redirect_to @job
+      redirect_to show_matches_path(@job)
     else
       render :new
     end

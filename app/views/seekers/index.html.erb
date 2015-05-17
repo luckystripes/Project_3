@@ -1,11 +1,29 @@
 <div>
 <h1>Hello <%= current_user.first_name.titleize%>, You have <%= pluralize(@jobs.count, "match") %> on your list</h1>
-<ul>
-<% @jobs.each do |job|%>
-<li><%= job.title%>
-</li>
-<% end %>
 
 <div>
 
-  
+<div class="ui cards">
+<% @jobs.each do |job|%>
+  <div class="card">
+    <a class="image">
+      <%= image_tag job.employer.avatar.url(:medium)%>
+    </a>
+    <div class="content">
+      <a class="header"><%= job.title%></a>
+      <div class="meta">
+        <a><%= job.job_type%></a>
+      </div>
+      <div class="description">
+        Salary : <%= job.salary%> dollars/hour<br>
+        Contact Person: <%= job.employer.first_name%> <%= job.employer.last_name%><br>
+        email: <%= job.employer.email%><br>
+        phone: <%= job.employer.phone%>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+  </div>
+  </div>
+
