@@ -53,9 +53,11 @@
 </style>
  
 <div class="body_div two column centered grid" id="gradient"><%=image_tag("lindker_logo.png", class: "ui medium rounded centered massive image center four column centered row") %></div>
-  <button class="ui inverted green button">Log in</button>
-  <button class="ui inverted blue button">Sign up as a Job Seeker</button>
-  <button class="ui inverted blue button">Sign up as an Employer</button>
+
+<%= link_to "Log in", login_path, class: "ui inverted green button"  %>
+<%= link_to "Sign up as a Job Seeker", signup_seeker_path, class: "ui inverted blue button"  %>
+<%= link_to "Sign up as an Employer", signup_employer_path, class: "ui inverted blue button"  %>
+
   <h1>Recent Jobs Added:</h1>
     <ul class="container ui nine cards"></ul>
           <script>
