@@ -1,21 +1,12 @@
 <div>
-	<h1>Jobs Index</h1>
-    <% @jobs.each do |job| %>
-		<h2><%= link_to job.title, job %></h2>
+<h1>We have <%= pluralize(@job.matched_seekers.count, "person") %> matched with this job</h1>
+<h2><%= link_to "Find more people for this job", job_path(@job) %></h2>
+<ul>
+<% @job.matched_seekers.each do |seeker|%>
+<li><%= seeker.first_name%> <%= seeker.last_name%> 
+</li>
+<% end %>
 
-	<% end %>
-	
-	<div>
-	<button type="button">
-		<%= link_to "+ New Job", new_job_path  %>
-	</button>
-	</div>
-  </div>
-</div>
+<div>
 
-<script>
-  d3.json("/jobs.json", function(data){
-  	console.log(data);
-  	
-  });
-</script>
+  
