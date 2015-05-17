@@ -1,7 +1,8 @@
-<form class="ui form segment">
-  <h4 class="ui dividing header">Edit Your Profile</h4>
 
-      <%= form_for(@seeker, url: {controller: "seekers", action: "update"},:html => { :multipart => true }) do |f| %>
+
+   <%= form_for(@seeker,  url: {controller: "seekers", action: "update"},:html => {:class => 'ui form segment', :multipart => true }) do |f| %>
+
+  <h4 class="ui dividing header">Edit Your Profile</h4>
 
       <% if @seeker.errors.any? %>
        <div>
@@ -99,7 +100,5 @@
 
 
       <%= f.submit "Edit your profile", class: "ui blue submit button" %>
-
-    <% end %>
-  </form>
-
+        
+      <% end %>

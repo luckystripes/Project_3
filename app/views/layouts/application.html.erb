@@ -59,19 +59,16 @@
     <% end %>
   
 
+  <% if flash[:danger] %>
+      <h4 class="bg-danger flash"><%= flash[:danger] %></h4>
+    <% end %>
 
 
-    <div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-2">
 
       <%= yield %>
 
 
-  </div>
-  </div>
-</div>
- 
+
 
 
   <script>

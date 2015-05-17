@@ -41,6 +41,7 @@ class SeekersController < ApplicationController
 
   def update #this action saves the change in the database.
     @seeker = Seeker.find(params[:id]) #retrives a single record
+    
     if @seeker.update_attributes(seeker_edit_params)  #If a record is successfully updated, redirect to the reports index.  
       redirect_to seekers_path
     else
