@@ -247,6 +247,15 @@ end
 
 
 
+# Match.create(user_id: 1, job_id: 1, user_accept: true, job_accept: nil)
+# Match.create(user_id: 1, job_id: 2, user_accept: true, job_accept: false)
+# Match.create(user_id: 1, job_id: 3, user_accept: false, job_accept: nil)
+# Match.create(user_id: 1, job_id: 4, user_accept: true, job_accept: false)
+# Match.create(user_id: 1, job_id: 5, user_accept: nil, job_accept: false)
+# Match.create(user_id: 1, job_id: 6, user_accept: false, job_accept: nil)
+# Match.create(user_id: 1, job_id: 7, user_accept: nil, job_accept: false)
+# Match.create(user_id: 1, job_id: 8, user_accept: true, job_accept: false)
+# Match.create(user_id: 1, job_id: 9, user_accept: false, job_accept: true)
 
 
 
