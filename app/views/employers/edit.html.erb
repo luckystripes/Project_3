@@ -4,7 +4,7 @@
 
       <h1>Edit Profile</h1>
 
-      <%= form_for(@seeker, url: {controller: "seekers", action: "update"},:html => { :multipart => true }) do |f| %>
+      <%= form_for @employer,:html => { :multipart => true } do |f| %>
 
       <% if @employer.errors.any? %>
        <div>
