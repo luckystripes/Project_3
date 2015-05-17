@@ -1,0 +1,18 @@
+<div>
+<h1>We have <%= pluralize(@job.matched_seekers.count, "person") %> matched with this job</h1>
+<h2><%= link_to "Find more people for this job", job_path(@job) %></h2>
+<ul>
+<% @job.matched_seekers.each do |seeker|%>
+	<li>
+		<h4>
+		<%= seeker.first_name%> <%= seeker.last_name%>      |      
+		<%= link_to "more info", show_all_path(seeker) ,class: "ui button" %> 
+		</h4>
+		<p><STRONG>Contact: </STRONG>Phone number- <%= seeker.phone%>  |   Email- <%= seeker.email%> </p>
+
+
+	</li>
+<% end %>
+</ul>
+
+<div>

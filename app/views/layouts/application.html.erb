@@ -11,44 +11,47 @@
 <body>
 
 <!----------------------------- LOGO  ---------------------->
-<div class="ui leaderboard test ad" data-text="Leaderboard">
+<!-- <div class="ui leaderboard test ad" data-text="Leaderboard">
   <h1 class="ui header">Lindker</h1>
-  <%= image_tag("trex.png") %>
-</div>
+  <%= image_tag("trex.png", class: "ui avatar image") %>
+
+</div> -->
 <!----------------------------- LOGIN  ---------------------->
   <% if logged_in? %>
-    <div>
-      Logged in as: <%= current_user.first_name %> | 
-     <%= link_to 'Log Out', logout_path, method: :delete %>
-     
-		</div>
+
     <% if current_user.employer? %>
-    <div class="ui inverted menu navbar">
-      <a href="" class="item">Add Job</a>
+    <div class="ui blue inverted menu navbar">
+      <%= image_tag("lindker_logo", class: "ui small rounded image item") %>
+          <a class="item">Logged in as: <%= current_user.first_name %></a>
+      <%= link_to 'Post a Job', new_job_path, class: "item" %>
       <!-- <a href="" class="item">Browse Job</a> -->
         <div class="right menu">
-          <a class="ui dropdown item">Profile
+         <div class="ui dropdown item">Profile
           <i class="dropdown icon"></i>
             <div class="menu">
-              <div class="item">Matched</div>
-              <div class="item">Settings</div>
+              <%= link_to 'My Posted Jobs', employers_path, class: "item" %>
+              <%= link_to 'Settings', edit_employer_path(current_user), class: "item"%>
+              <%= link_to 'Log Out', logout_path, method: :delete, class: "item" %>
             </div>
-          </a>
-        </div>
-      </div>
+          </div>
+          </div>
+          </div>
+
 
       <% else %>
-    <div class="ui inverted menu navbar">
+    <div class="ui blue inverted menu navbar">
       <!-- <a href="" class="item">Add Job</a> -->
-      <a href="" class="item">Browse Job</a>
+      <%= image_tag("lindker_logo", class: "ui small rounded image item") %>
+          <a class="item">Logged in as: <%= current_user.first_name %></a>
+      <%= link_to 'Browse Job', seeker_path , class: "item"%>
         <div class="right menu">
-          <a class="ui dropdown item">Profile
+          <div class="ui dropdown item">Profile
           <i class="dropdown icon"></i>
             <div class="menu">
-              <div class="item">Matched</div>
-              <div class="item">Settings</div>
+              <%= link_to 'Matched', seekers_path, class: "item" %>
+              <%= link_to 'Settings', edit_seeker_path(current_user), class: "item"%>
             </div>
-          </a>
+          </div>
         </div>
       </div>
       <% end %>

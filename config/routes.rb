@@ -6,6 +6,7 @@ post '/jobs' => 'jobs#create'
 get 'jobs/new' => 'jobs#new', as: :new_job
 get 'jobs/:id/edit' => 'jobs#edit', as: :edit_job
 get 'jobs/:id' => 'jobs#show', as: :job
+get 'job/:id' => 'jobs#show_matches', as: :show_matches
 put 'jobs/:id' => 'jobs#update'
 patch 'jobs/:id' => 'jobs#update'
 delete 'jobs/:id' => 'jobs#destroy'
@@ -17,7 +18,7 @@ get "seekers" => "seekers#index" # will need to remove this once we have a front
 get "seekers/:id" => "seekers#show", as: :seeker# will need to remove this once we have a front end.  
 get "seekers/:id/edit" => "seekers#edit", as: :edit_seeker
 patch "seekers/:id" => "seekers#update"
-get "seekers/:id/show_all" => "seekers#show_all"
+get "seekers/:id/show_all" => "seekers#show_all", as: :show_all
 
 # Seeker API routes, need to activate these once the front end is ready to consume them...
 #namespace :api do
