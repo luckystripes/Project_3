@@ -1,5 +1,9 @@
 <div>
-<h1>You have listed <%= pluralize(@jobs.count, "job") %> on Lindker</h1>
+	<div class="ui message">
+		<div class="header">
+			<h1>You have listed <%= pluralize(@jobs.count, "job") %> on Lindker</h1>
+		</div>
+	</div>
     <% @jobs.each do |job| %>
 		<h2><%= link_to job.title, show_matches_path(job) %></h2>
 		<p><%= pluralize(job.matched_seekers.count, "person") %> matched with this job</p>
