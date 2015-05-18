@@ -1,39 +1,36 @@
-<div>
+<div class="ui form">
 	<%= form_for @job do |f| %>
-	<div>
-	<%= f.select :job_type, options_for_select([["education"], ["office"], ["customer service"], ["skill trade"], ["general labor"], ["other"]]) %>
+
+<!-- dropdown -->
+	<div class="field">
+		<%= f.label "Job Type" %>
+		<%= f.select :job_type, options_for_select([["education"], ["office"], ["customer service"], ["skill trade"], ["general labor"], ["other"]]) %>
 	</div>
-<!-- drop down category -->
 	
 <!-- form input -->
 
- 	<div class="form-group">
+ 	<div class="field">
 	 	<%= f.label "Job Title" %>
 	 	<%= f.text_field :title %>
 	 </div>
 
-
-	<div>
-	<%= f.label "Job Type" %>
-	</div>
-
-	 <div class="form-group">
+	 <div class="field">
 	 	<%= f.label "Salary" %>
 	 	<%= f.text_field :salary %>
 	 </div>
 
-	 <div class="form-group">
+	 <div class="field">
 	 	<%= f.label "Skill Requirements" %>
 	 	<%= f.text_field :skill %>
 	 </div>
 
-	 <div class="form-group">
+	 <div class="field">
 	 	<%= f.label "Location" %>
 	 	<%= f.text_field :location %>
 	 </div>
 
 
-	  <div class="form-group">
+	  <div class="field">
 	 	<%= f.submit "Post Job", class: "btn btn-primary" %>
 	 </div>
 
