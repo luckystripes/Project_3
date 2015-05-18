@@ -19,7 +19,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def show
-
+    @job = find_job
     @match = Match.where(user_accept: true, job_accept: nil, job_id: @job.id).first
     
     if (@match==nil)
@@ -35,8 +35,9 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new(jobs_params)
-   
+    @user = current_user
+    @job = @user.jobs.new(jobs_params)
+    
     if @job.save
       redirect_to show_matches_path(@job)
     else
@@ -55,6 +56,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def update
+     @job = find_job
     if @job.update(jobs_params)
       redirect_to @job
     else
