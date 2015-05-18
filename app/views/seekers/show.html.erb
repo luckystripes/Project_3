@@ -1,16 +1,19 @@
 <div class="ui four column centered grid">
 <% if (@job == nil) %>
-
+<div class="column centered">
 We do not have any potential job matches currently for you, please check back later.  
-
+</div>
 <% else %>
 <div class="column centered">
-<div>
-	<h1><%= @job.title %></h1>
+<div class="ui card">
+	<div class="content">
+	<h1 class="header"><%= @job.title %></h1>
+
 	<p>Job Type: <%= @job.job_type %></p>
 	<p>Location: <%= @job.location %></p>
 	<p>Pay: $<%= @job.salary %></p>
 	<p>Skills Needed: <%= @job.skill %></p>
+	</div>
 </div>
 
 <div class="ui buttons">
@@ -24,3 +27,18 @@ We do not have any potential job matches currently for you, please check back la
 
 
 </div>
+
+<script>
+	
+
+$( ".positive" ).click(function() {
+	$('.card')
+  .transition('browse left')
+;
+});
+$( ".negative" ).click(function() {
+	$('.card')
+  .transition('browse right')
+;
+});
+</script>
