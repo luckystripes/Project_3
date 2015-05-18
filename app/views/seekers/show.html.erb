@@ -11,8 +11,8 @@ We do not have any potential job matches currently for you, please check back la
 	<p>Pay: $<%= @job.salary %></p>
 	<p>Skills Needed: <%= @job.skill %></p>
 </div>
-
-<%= link_to "like", matches_path(:response => { user_accept: true, user_id: current_user.id, job_id: @job.id}) ,method: :post, class: "btn btn-success btn-block"%>
-<%= link_to "skip", matches_path(:response => { :user_accept => false, :user_id => current_user.id, :job_id => @job.id}) ,method: :post, class: "btn btn-danger btn-block"%>
+<br>
+<%= link_to "like", matches_path(:response => { user_accept: true, user_id: current_user.id, job_id: @job.id}) ,method: :post, class: "ui inverted green button"%>
+<%= link_to "skip", matches_path(:response => { :user_accept => false, :user_id => current_user.id, :job_id => @job.id}) ,method: :post, class: "ui inverted red button"%>
 
 <%end%>
