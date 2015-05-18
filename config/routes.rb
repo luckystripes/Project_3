@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 root 'users#index'
+get '/users' => 'users#index'
 # JOBS ROUTES
 get '/jobs' => 'jobs#index', as: :jobs
 post '/jobs' => 'jobs#create'
