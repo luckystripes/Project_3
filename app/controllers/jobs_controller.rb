@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   end
   
 
-  end
+  
   # ----------------------------------------------------------
 
   def new
@@ -16,7 +16,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def show
-    @job = find_job
+
     @match = Match.where(user_accept: true, job_accept: nil, job_id: @job.id).first
     
     if (@match==nil)
@@ -53,7 +53,7 @@ class JobsController < ApplicationController
   # ----------------------------------------------------------
 
   def update
-     @job = find_job
+
     if @job.update(jobs_params)
       redirect_to @job
     else

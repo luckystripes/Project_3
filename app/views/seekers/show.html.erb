@@ -1,9 +1,10 @@
+<div class="ui four column centered grid">
 <% if (@job == nil) %>
 
 We do not have any potential job matches currently for you, please check back later.  
 
 <% else %>
-
+<div class="column centered">
 <div>
 	<h1><%= @job.title %></h1>
 	<p>Job Type: <%= @job.job_type %></p>
@@ -11,8 +12,13 @@ We do not have any potential job matches currently for you, please check back la
 	<p>Pay: $<%= @job.salary %></p>
 	<p>Skills Needed: <%= @job.skill %></p>
 </div>
+<div class="ui buttons">
+<%= link_to "like", matches_path(:response => { user_accept: true, user_id: current_user.id, job_id: @job.id}) ,method: :post, class: "positive ui button"%>
+ <div class="or"></div>
+<%= link_to "skip", matches_path(:response => { :user_accept => false, :user_id => current_user.id, :job_id => @job.id}) ,method: :post, class: "negative ui button"%>
+</div>	
 
-<%= link_to "like", matches_path(:response => { user_accept: true, user_id: current_user.id, job_id: @job.id}) ,method: :post, class: "btn btn-success btn-block"%>
-<%= link_to "skip", matches_path(:response => { :user_accept => false, :user_id => current_user.id, :job_id => @job.id}) ,method: :post, class: "btn btn-danger btn-block"%>
-
+</div>
 <%end%>
+
+</div>

@@ -1,19 +1,63 @@
+<div class="ui four column centered grid">
 <% if (@seeker== nil) %>
 
 We do not have any potential job seeker matches currently for you, please check back later.  
 
 <% else %>
-<div>
-	<p><strong>Name: </strong><%= @seeker.first_name %> <%= @seeker.last_name %></p>
+<div class="column centered">
+
+      <br>
+<a class="ui button flip "> More Info</a>
+
+<div class="ui shape">
+    <div class="sides">
+      <div class="active ui side card">
+
+           
+      <p><strong>Profile Picture: <%= image_tag @seeker.avatar.url(:medium), class: "ui medium rounded image" %></strong></p>
+      <p><strong>Name: </strong><%= @seeker.first_name %> <%= @seeker.last_name %></p>
 	<p><strong>Looking for: </strong><%= @seeker.job_type  %></p>
 	<p><strong>Skill set: </strong><%= @seeker.skill_set  %></p>
 	<p><strong>Education level: </strong><%= @seeker.edu_level  %></p>
 	<p><strong>Work experience: </strong><%= @seeker.work_exp  %></p>
 	<p><strong>Date available: </strong><%= @seeker.date_available  %></p>
-	<p><strong>Profile Picture: <%= image_tag @seeker.avatar.url(:medium), class: "img-rounded img-responsive" %></strong></p>
-</div>
+
+	
+      </div>
+      <div class="ui side card"> 
+
+      <p><strong>Profile Picture: <%= image_tag @seeker.avatar.url(:medium), class: "ui medium rounded image" %></strong></p>
+      <div class="content"><strong>About me </strong> : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      </div>
+
+    </div>
+  </div>
+
 <div>
-<%= link_to "hire", matches_path(:response => { job_accept: true, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "btn btn-success btn-block"%>
-<%= link_to "pass", matches_path(:response => { job_accept: false, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "btn btn-danger btn-block"%>
+
 </div>
+<div class="ui buttons">
+<%= link_to "hire", matches_path(:response => { job_accept: true, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "positive ui button"%>
+ <div class="or"></div>
+<%= link_to "pass", matches_path(:response => { job_accept: false, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "negative ui button"%>
+</div>
+
+</div>
+
 <%end%>
+</div>
+
+<script>
+
+
+$( ".flip" ).click(function() {
+$('.shape')
+  .shape('set next side', '.second.side')
+  .shape('flip over')
+;})
+</script>
