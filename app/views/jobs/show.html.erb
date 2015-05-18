@@ -4,6 +4,7 @@
 We do not have any potential job seeker matches currently for you, please check back later.  
 
 <% else %>
+
 <div class="column centered">
 
       <br>
@@ -45,6 +46,7 @@ We do not have any potential job seeker matches currently for you, please check 
 <%= link_to "hire", matches_path(:response => { job_accept: true, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "positive ui button"%>
  <div class="or"></div>
 <%= link_to "pass", matches_path(:response => { job_accept: false, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "negative ui button"%>
+
 </div>
 
 </div>
@@ -60,4 +62,7 @@ $('.shape')
   .shape('set next side', '.second.side')
   .shape('flip over')
 ;})
+
+
+
 </script>

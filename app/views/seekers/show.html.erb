@@ -12,6 +12,7 @@ We do not have any potential job matches currently for you, please check back la
 	<p>Pay: $<%= @job.salary %></p>
 	<p>Skills Needed: <%= @job.skill %></p>
 </div>
+
 <div class="ui buttons">
 <%= link_to "like", matches_path(:response => { user_accept: true, user_id: current_user.id, job_id: @job.id}) ,method: :post, class: "positive ui button"%>
  <div class="or"></div>
@@ -20,5 +21,6 @@ We do not have any potential job matches currently for you, please check back la
 
 </div>
 <%end%>
+
 
 </div>
