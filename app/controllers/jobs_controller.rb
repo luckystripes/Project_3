@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   end
   
 
-  end
+
   # ----------------------------------------------------------
 
   def new
