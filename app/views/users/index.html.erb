@@ -37,6 +37,15 @@
     margin-bottom:5px;
     z-index: 10px;
   }
+  #matches{
+    color: white;
+    font-size: 25px;
+  }
+
+  #jobs{
+    color: white;
+    font-size: 25px;
+  }
 
   #gradient {
         /* fallback color */
@@ -105,6 +114,20 @@
               });
           </script>
   </div>
+
+<h1>Total Jobs Available:</h1>
+
+  <div id="jobs">
+          <script>
+            $.get("/users.json",function(data){
+              console.log(data);
+
+                $('#jobs').append(data.jobs)
+              });
+          </script>
+  </div>
+
+
            <script>
              $(document).ready(function(){
                  $('.body_div').fadeOut(4000);

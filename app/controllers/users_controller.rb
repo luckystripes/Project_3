@@ -4,8 +4,9 @@ class UsersController < ApplicationController
 	 	#render json: Job.all
 		@recent_jobs = Job.last(9).reverse  
 		@matches = Match.all.count
+		@jobs = Job.all.count
 
-		response = {:recent_jobs => @recent_jobs, :matches => @matches}
+		response = {:recent_jobs => @recent_jobs, :matches => @matches, :jobs => @jobs}
 
 		respond_to do |format|
 	    format.html { render 'index' }
