@@ -2,12 +2,15 @@
 <style>
   h1{
     margin: auto;
+    color: white;
   } 
 
-  body{
-  background-color: grey;
-  }
+  body{ /*background-image: url(<%= asset_path 'cashier1.jpg' %>) */
 
+      background-image: url("cashier1.jpg");
+      background-size: cover;
+
+  }  
   rect {
     stroke: #fff;
     stroke-width: .1px;
@@ -30,7 +33,6 @@
   .body_div{
     height:100%;
     width:100%;
-    /*background-color:#ADD8E6;*/
     border-radius:5px;
     margin-bottom:5px;
     z-index: 10px;
@@ -52,11 +54,33 @@
  
 </style>
  
-<div class="body_div two column centered grid" id="gradient"><%=image_tag("lindker_logo.png", class: "ui medium rounded centered massive image center four column centered row") %></div>
+<div class="body_div" id="gradient"><%=image_tag("trex.png", class: "ui medium rounded centered big image center") %></div>
 
-<%= link_to "Log in", login_path, class: "ui inverted green button"  %>
-<%= link_to "Sign up as a Job Seeker", signup_seeker_path, class: "ui inverted blue button"  %>
-<%= link_to "Sign up as an Employer", signup_employer_path, class: "ui inverted blue button"  %>
+  <%=image_tag("lindker_logo.png", class: "ui medium rounded big image center") %>
+
+<!-- <div class="ui grid three column row">
+      <%#= link_to "Log in", login_path, class: "ui inverted green button column"  %>
+      <%#= link_to "Sign up as a Job Seeker", signup_seeker_path, class: "ui inverted blue button column"  %>
+      <%#= link_to "Sign up as an Employer", signup_employer_path, class: "ui inverted blue button column"  %>
+</div> -->
+
+
+<div class="ui buttons">
+  <%= link_to "Log in", login_path, class: "ui green button"  %>
+  <%= link_to "Sign up as a Job Seeker", signup_seeker_path, class: "ui blue button"  %>
+  <%= link_to "Sign up as an Employer", signup_employer_path, class: "ui blue button"  %>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
   <h1>Recent Jobs Added:</h1>
     <ul class="container ui nine cards"></ul>
@@ -64,14 +88,25 @@
             $.get("/jobs.json",function(data){
               console.log(data);
                 data.forEach(function(el){
-                  var content = '<li class="green card"><div class="content"><div class="header">'+el.title+'</div><div class="meta">'+el.skill+'</div></div></li>';
+                  var content = '<li class="transparent card"><div class="content"><div class="header">'+el.title+'</div><div class="meta">'+el.skill+'</div></div></li>';
                 $('.container').append(content)
                  });
             });
+
+
           </script>
 
+  <h1>Job Matches Made:</h1>
+  <div id="matches">
+          <script>
+            $.get("/matches.json",function(data){
+              console.log(data);
+                $('#matches').append(data.count)
+              });
+          </script>
+  </div>
            <script>
              $(document).ready(function(){
-                 $('.body_div').fadeOut(3000);
+                 $('.body_div').fadeOut(4000);
                });
            </script>
