@@ -61,8 +61,29 @@ $( ".flip" ).click(function() {
 $('.shape')
   .shape('set next side', '.second.side')
   .shape('flip over')
-;})
+;});
 
-
+$( ".positive" ).click(function() {
+	$('.shape')
+  .transition('browse left')
+;
+});
+$( ".negative" ).click(function() {
+	$('.shape')
+  .transition('browse right')
+;
+});
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
