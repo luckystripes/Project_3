@@ -52,7 +52,7 @@
             <div class="menu">
               <%= link_to 'Matched', seekers_path, class: "item" %>
               <%= link_to 'Settings', edit_seeker_path(current_user), class: "item"%>
-              <%= link_to 'Log Out', logout_path, class: "item" %> </div>
+              <%= link_to 'Log Out', logout_path, method: :delete, class: "item" %> </div>
           </div>
         </div>
       </div>

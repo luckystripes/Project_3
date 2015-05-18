@@ -2,7 +2,7 @@
 <div>
 	<h1>Jobs Index</h1>
     <% @jobs.each do |job| %>
-		<h2><%= link_to job.title, job %></h2>
+		<h2><%= link_to job.title, job_path(job) %></h2>
 
 	<% end %>
 	
