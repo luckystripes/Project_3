@@ -1,18 +1,44 @@
+<div class="ui four column centered grid">
 <% if (@job == nil) %>
-
+<div class="column centered">
 We do not have any potential job matches currently for you, please check back later.  
-
+</div>
 <% else %>
+<div class="column centered">
+<div class="ui card">
+	<div class="content">
+	<h1 class="header"><%= @job.title %></h1>
 
-<div>
-	<h1><%= @job.title %></h1>
 	<p>Job Type: <%= @job.job_type %></p>
 	<p>Location: <%= @job.location %></p>
 	<p>Pay: $<%= @job.salary %></p>
 	<p>Skills Needed: <%= @job.skill %></p>
+	</div>
 </div>
 
-<%= link_to "like", matches_path(:response => { user_accept: true, user_id: current_user.id, job_id: @job.id}) ,method: :post, class: "btn btn-success btn-block"%>
-<%= link_to "skip", matches_path(:response => { :user_accept => false, :user_id => current_user.id, :job_id => @job.id}) ,method: :post, class: "btn btn-danger btn-block"%>
+<div class="ui buttons">
+<%= link_to "like", matches_path(:response => { user_accept: true, user_id: current_user.id, job_id: @job.id}) ,method: :post, class: "positive ui button"%>
+ <div class="or"></div>
+<%= link_to "skip", matches_path(:response => { :user_accept => false, :user_id => current_user.id, :job_id => @job.id}) ,method: :post, class: "negative ui button"%>
+</div>	
 
+</div>
 <%end%>
+
+
+</div>
+
+<script>
+	
+
+$( ".positive" ).click(function() {
+	$('.card')
+  .transition('browse left')
+;
+});
+$( ".negative" ).click(function() {
+	$('.card')
+  .transition('browse right')
+;
+});
+</script>

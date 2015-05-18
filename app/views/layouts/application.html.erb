@@ -13,15 +13,17 @@
 <!----------------------------- LOGO  ---------------------->
 <!-- <div class="ui leaderboard test ad" data-text="Leaderboard">
   <h1 class="ui header">Lindker</h1>
-  <%= image_tag("trex.png", class: "ui avatar image") %>
+  <%= link_to (image_tag "trex.png", class: "ui avatar image"), root_path %>
 
-</div> -->
+</div> 
+
+
 <!----------------------------- LOGIN  ---------------------->
   <% if logged_in? %>
 
     <% if current_user.employer? %>
     <div class="ui blue inverted menu navbar">
-      <%= image_tag("lindker_logo", class: "ui small rounded image item") %>
+      <%= link_to (image_tag "lindker_logo", class: "ui small rounded image item"), root_path %>
           <a class="item">Logged in as: <%= current_user.first_name %></a>
       <%= link_to 'Post a Job', new_job_path, class: "item" %>
       <!-- <a href="" class="item">Browse Job</a> -->
@@ -41,16 +43,16 @@
       <% else %>
     <div class="ui blue inverted menu navbar">
       <!-- <a href="" class="item">Add Job</a> -->
-      <%= image_tag("lindker_logo", class: "ui small rounded image item") %>
+        <%= link_to (image_tag "lindker_logo", class: "ui small rounded image item"), root_path %>
           <a class="item">Logged in as: <%= current_user.first_name %></a>
-      <%= link_to 'Browse Job', seeker_path(current_user) , class: "item"%>
+      <%= link_to 'Browse Jobs', seeker_path(current_user) , class: "item"%>
         <div class="right menu">
           <div class="ui dropdown item">Profile
           <i class="dropdown icon"></i>
             <div class="menu">
               <%= link_to 'Matched', seekers_path, class: "item" %>
               <%= link_to 'Settings', edit_seeker_path(current_user), class: "item"%>
-              <%= link_to 'Log Out', logout_path, class: "item" %> </div>
+              <%= link_to 'Log Out', logout_path, method: :delete, class: "item" %> </div>
           </div>
         </div>
       </div>
@@ -84,8 +86,10 @@
     <% end %>
 
 
-
-      <%= yield %>
+<div class="container">
+<%= yield %>
+</div> 
+ 
 
 
 

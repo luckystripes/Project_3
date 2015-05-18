@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+
+root 'users#index'
+get '/users' => 'users#index'
 # JOBS ROUTES
-root 'jobs#index'
+
 get '/jobs' => 'jobs#index', as: :jobs
 post '/jobs' => 'jobs#create'
 get 'jobs/new' => 'jobs#new', as: :new_job
 get 'jobs/:id/edit' => 'jobs#edit', as: :edit_job
 get 'jobs/:id' => 'jobs#show', as: :job
-get 'job/:id' => 'jobs#show_matches', as: :show_matches
+get 'show_matches/:id' => 'jobs#show_matches', as: :show_matches
 put 'jobs/:id' => 'jobs#update'
 patch 'jobs/:id' => 'jobs#update'
 delete 'jobs/:id' => 'jobs#destroy'
@@ -14,8 +17,8 @@ delete 'jobs/:id' => 'jobs#destroy'
 # Seekers routes
 get "signup_seeker" => "seekers#new", as: :signup_seeker
 post "seekers" => "seekers#create"
-get "seekers" => "seekers#index" # will need to remove this once we have a front end.  
-get "seekers/:id" => "seekers#show", as: :seeker# will need to remove this once we have a front end.  
+get "seekers" => "seekers#index"   
+get "seekers/:id" => "seekers#show", as: :seeker  
 put "seekers/:id" => "seekers#update"
 patch "seekers/:id" => "seekers#update"
 get "seekers/:id/edit" => "seekers#edit", as: :edit_seeker

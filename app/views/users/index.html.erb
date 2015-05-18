@@ -1,0 +1,126 @@
+
+<style>
+  h1{
+    margin: auto;
+    color: white;
+  } 
+
+  body{ /*background-image: url(<%= asset_path 'cashier1.jpg' %>) */
+
+      background-image: url("cashier1.jpg");
+      background-size: cover;
+
+  }  
+  rect {
+    stroke: #fff;
+    stroke-width: .1px;
+  }
+
+  .job {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .title{
+    color: black;
+    font-weight: bold;
+  }
+
+  .skill{
+    color: grey;
+  }
+
+  .body_div{
+    height:100%;
+    width:100%;
+    border-radius:5px;
+    margin-bottom:5px;
+    z-index: 100px;
+  }
+  #matches{
+    color: white;
+    font-size: 25px;
+  }
+
+  #jobs{
+    color: white;
+    font-size: 25px;
+  }
+
+  #gradient {
+        /* fallback color */
+        background-color: #66cccc; 
+        /* Firefox 3.6+ */
+        background-image: -moz-linear-gradient(#336666, #66cccc);
+        /* Safari 4+, Chrome 1+ */
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66cccc), to(#336666));
+        /* Safari 5.1+, Chrome 10+ */
+        background-image: -webkit-linear-gradient(#336666, #66cccc); 
+        /* Opera 11.10+ */
+        background-image: -o-linear-gradient(#336666, #66cccc);
+        height: 100%;
+        width: 100%;}
+ 
+</style>
+ 
+<div class="body_div" id="gradient"><%=image_tag("trex.png", class: "ui medium rounded centered big image center") %>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.body_div').fadeOut(4000);
+  });
+</script>
+
+  <%=image_tag("lindker_logo.png", class: "ui medium rounded big image center") %>
+
+<div class="ui buttons">
+  <%= link_to "Log in", login_path, class: "ui green button"  %>
+  <%= link_to "Sign up as a Job Seeker", signup_seeker_path, class: "ui blue button"  %>
+  <%= link_to "Sign up as an Employer", signup_employer_path, class: "ui blue button"  %>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <h1>Recent Jobs Added:</h1>
+    <ul class="container ui nine cards"></ul>
+           <script>
+            $.get("/users.json",function(data){
+              var jobs = data.recent_jobs;
+              for(var i = 0; i < jobs.length; i++){
+               var content = '<li class="green card"><div class="content"><div class="header">'+jobs[i].title+'</div><div class="meta">'+jobs[i].skill+'</div></div></li>';
+                $('.nine').append(content);
+              }
+            });
+          </script>
+
+  <h1>Job Matches Made:</h1>
+  <div id="matches">
+          <script>
+            $.get("/users.json",function(data){
+              console.log(data);
+
+                $('#matches').append(data.matches)
+              });
+          </script>
+  </div>
+
+<h1>Total Jobs Available:</h1>
+
+  <div id="jobs">
+          <script>
+            $.get("/users.json",function(data){
+              console.log(data);
+
+                $('#jobs').append(data.jobs)
+              });
+          </script>
+  </div>
+
+
+           

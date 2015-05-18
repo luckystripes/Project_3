@@ -4,6 +4,7 @@
 We do not have any potential job seeker matches currently for you, please check back later.  
 
 <% else %>
+<<<<<<< HEAD
 
 <div class="column centered">
 
@@ -81,3 +82,16 @@ $( ".negative" ).click(function() {
 
 
 
+
+
+
+
+
+
+<<<<<<< HEAD
+</script>
+
+
+
+=======
+>>>>>>> 0c46b06b094c4b690e3bb748f51cb87c95d6c538
