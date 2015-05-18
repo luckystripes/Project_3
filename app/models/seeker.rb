@@ -9,5 +9,5 @@ class Seeker < User
   	def matched_jobs
   		self.jobs.includes(:matches).where(matches: {user_accept: true, job_accept: true})
   	end
-
+  validates :job_type, presence: true
 end
