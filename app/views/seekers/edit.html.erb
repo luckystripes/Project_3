@@ -30,9 +30,11 @@
 
 
           <div class="field">
-          <div class="field">
-        <%= f.label :job_type %>
+
+        <%= f.label :job_type, "Job type interested" %>
          <%= f.select :job_type, options_for_select([["education"], ["office"], ["customer service"], ["skill trade"], ["general labor"], ["other"]]) , class: "ui dropdown"%>
+
+
       </div>
         <div class="field">
           <%= f.label :phone %>
@@ -43,22 +45,27 @@
           <%= f.text_field :skill_set %>
         </div>
         <div class="field">
-          <%= f.label :edu_level %>
+          <%= f.label :edu_level, "Education Level" %>
           <%= f.text_field :edu_level %>
         </div>
         <div class="field">
-          <%= f.label :work_exp %>
+          <%= f.label :work_exp, "Work experence (year)" %>
           <%= f.number_field :work_exp %>
         </div>
-        <div class="three field">
+        <div class="field">
           <%= f.label :date_available %>
           <%= f.text_field :date_available %>
         </div>
+           <div class="field">
+          <%= f.label :avatar, "Profile Picture" %>
+          <%= f.file_field :avatar%>
+        </div>
+
+        </div>
+
         <div class="field">
           <%= f.label :address %>
           <%= f.text_field :address %>
-        </div>
-        </div>
         </div>
         <div class="three fields">
 
@@ -100,5 +107,16 @@
 
 
       <%= f.submit "Edit your profile", class: "ui blue submit button" %>
+
         
       <% end %>
+
+<script>
+        $('.dropdown')
+  .dropdown({
+    // you can use any ui transition
+    transition: 'drop'
+  })
+;
+</script>
+
