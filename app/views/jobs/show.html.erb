@@ -3,17 +3,24 @@
 We do not have any potential job seeker matches currently for you, please check back later.  
 
 <% else %>
-<div>
-	<p><strong>Name: </strong><%= @seeker.first_name %> <%= @seeker.last_name %></p>
-	<p><strong>Looking for: </strong><%= @seeker.job_type  %></p>
-	<p><strong>Skill set: </strong><%= @seeker.skill_set  %></p>
-	<p><strong>Education level: </strong><%= @seeker.edu_level  %></p>
-	<p><strong>Work experience: </strong><%= @seeker.work_exp  %></p>
-	<p><strong>Date available: </strong><%= @seeker.date_available  %></p>
-	<p><strong>Profile Picture: <%= image_tag @seeker.avatar.url(:medium), class: "img-rounded img-responsive" %></strong></p>
+
+<div class="ui card">
+	<a class="image"><strong>Profile Picture:</strong> <%= image_tag @seeker.avatar.url(:medium)%> </a>
+	<p class="header"><strong>Name:</strong> <%= @seeker.first_name %> <%= @seeker.last_name %></p>
+	<p class="header"><strong>Looking for: </strong> <%= @seeker.job_type  %></p>
+	<p class="header"><strong>Skill set: </strong> <%= @seeker.skill_set  %></p>
+	<p class="header"><strong>Education level: </strong> <%= @seeker.edu_level  %></p>
+	<p class="header"><strong>Work experience: </strong> <%= @seeker.work_exp  %></p>
+	<p class="header"><strong>Date available: </strong> <%= @seeker.date_available  %></p>
 </div>
-<div>
-<%= link_to "hire", matches_path(:response => { job_accept: true, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "btn btn-success btn-block"%>
-<%= link_to "pass", matches_path(:response => { job_accept: false, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "btn btn-danger btn-block"%>
+
+<div class="match-container">
+	<div class="positive ui button">
+		<%= link_to "hire", matches_path(:response => { job_accept: true, user_id:
+			@seeker.id, job_id: @job.id}) ,method: :post, class: "link"%>
+	</div>
+	<div class="negative ui button">
+		<%= link_to "pass", matches_path(:response => { job_accept: false, user_id: @seeker.id, job_id: @job.id}) ,method: :post, class: "link"%>
+	</div>
 </div>
 <%end%>

@@ -6,8 +6,6 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
   
-
-  end
   # ----------------------------------------------------------
 
   def new
