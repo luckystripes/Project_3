@@ -6,6 +6,11 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
   
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 79c71791ae2b57662c5c2a7f8268b807674d2818
   # ----------------------------------------------------------
 
   def new
