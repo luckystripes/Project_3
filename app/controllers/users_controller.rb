@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def index
 	 	#render json: Job.all
 		@recent_jobs = Job.last(9).reverse  
-		@matches = Match.all.count
+		@matches = Match.all_matched.count
 		@jobs = Job.all.count
 
 		response = {:recent_jobs => @recent_jobs, :matches => @matches, :jobs => @jobs}
