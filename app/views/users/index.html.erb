@@ -93,12 +93,12 @@
 
   <h1>Recent Jobs Added:</h1>
     <ul class="container ui nine cards"></ul>
-          <script>
+           <script>
             $.get("/users.json",function(data){
               var jobs = data.recent_jobs;
               for(var i = 0; i < jobs.length; i++){
-               var content = '<li class="transparent card"><div class="content"><div class="header">'+jobs[i].title+'</div><div class="meta">'+jobs[i].skill+'</div></div></li>';
-                $('.container').append(content);
+               var content = '<li class="green card"><div class="content"><div class="header">'+jobs[i].title+'</div><div class="meta">'+jobs[i].skill+'</div></div></li>';
+                $('.nine').append(content);
               }
                 
             });
