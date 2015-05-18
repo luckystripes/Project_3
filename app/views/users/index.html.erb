@@ -35,7 +35,7 @@
     width:100%;
     border-radius:5px;
     margin-bottom:5px;
-    z-index: 10px;
+    z-index: 100px;
   }
   #matches{
     color: white;
@@ -63,26 +63,22 @@
  
 </style>
  
-<div class="body_div" id="gradient"><%=image_tag("trex.png", class: "ui medium rounded centered big image center") %></div>
+<div class="body_div" id="gradient"><%=image_tag("trex.png", class: "ui medium rounded centered big image center") %>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.body_div').fadeOut(4000);
+  });
+</script>
 
   <%=image_tag("lindker_logo.png", class: "ui medium rounded big image center") %>
-
-<!-- <div class="ui grid three column row">
-      <%#= link_to "Log in", login_path, class: "ui inverted green button column"  %>
-      <%#= link_to "Sign up as a Job Seeker", signup_seeker_path, class: "ui inverted blue button column"  %>
-      <%#= link_to "Sign up as an Employer", signup_employer_path, class: "ui inverted blue button column"  %>
-</div> -->
-
 
 <div class="ui buttons">
   <%= link_to "Log in", login_path, class: "ui green button"  %>
   <%= link_to "Sign up as a Job Seeker", signup_seeker_path, class: "ui blue button"  %>
   <%= link_to "Sign up as an Employer", signup_employer_path, class: "ui blue button"  %>
 </div>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -127,8 +123,4 @@
   </div>
 
 
-           <script>
-             $(document).ready(function(){
-                 $('.body_div').fadeOut(4000);
-               });
-           </script>
+           
