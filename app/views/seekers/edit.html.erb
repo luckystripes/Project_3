@@ -1,0 +1,122 @@
+
+
+   <%= form_for(@seeker,  url: {controller: "seekers", action: "update"},:html => {:class => 'ui form segment', :multipart => true }) do |f| %>
+
+  <h4 class="ui dividing header">Edit Your Profile</h4>
+
+      <% if @seeker.errors.any? %>
+       <div>
+         <h4 class="text-danger"><%= pluralize(@seeker.errors.count, "error") %>prevented you from signing up!</h4>
+        <ul class="list-group">
+        <% @seeker.errors.full_messages.each do |msg|%>
+        <li class="list-group-item list-group-item-danger">
+          <%= msg.downcase %>
+        </li>
+        <% end %>
+        </ul>        
+       </div>
+       <% end %>
+
+
+    <div class="two fields">
+          <div class="field">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name%>
+          </div>
+          <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name%>
+          </div>
+
+
+          <div class="field">
+
+        <%= f.label :job_type, "Job type interested" %>
+         <%= f.select :job_type, options_for_select([["education"], ["office"], ["customer service"], ["skill trade"], ["general labor"], ["other"]]) , class: "ui dropdown"%>
+
+
+      </div>
+        <div class="field">
+          <%= f.label :phone %>
+          <%= f.text_field :phone %>
+        </div>
+        <div class="field">
+          <%= f.label :skill_set %>
+          <%= f.text_field :skill_set %>
+        </div>
+        <div class="field">
+          <%= f.label :edu_level, "Education Level" %>
+          <%= f.text_field :edu_level %>
+        </div>
+        <div class="field">
+          <%= f.label :work_exp, "Work experence (year)" %>
+          <%= f.number_field :work_exp %>
+        </div>
+        <div class="field">
+          <%= f.label :date_available %>
+          <%= f.text_field :date_available %>
+        </div>
+           <div class="field">
+          <%= f.label :avatar, "Profile Picture" %>
+          <%= f.file_field :avatar%>
+        </div>
+
+        </div>
+
+        <div class="field">
+          <%= f.label :address %>
+          <%= f.text_field :address %>
+        </div>
+        <div class="three fields">
+
+        <div class="field">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
+        </div>
+        <div class="field">
+          <%= f.label :state %>
+          <%= f.text_field :state %>
+        </div>
+        <div class="field">
+          <%= f.label :zipcode %>
+          <%= f.text_field :zipcode %>
+        </div>
+        </div>
+
+        <h4 class="ui dividing header">Account Info</h4>
+    <div class="two fields">
+
+    <div class="field">
+    <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email%>
+    </div>
+    <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password%>
+    </div>
+    <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation%>
+    </div>
+    </div>
+
+    </div>
+
+
+
+
+      <%= f.submit "Edit your profile", class: "ui blue submit button" %>
+
+        
+      <% end %>
+
+<script>
+        $('.dropdown')
+  .dropdown({
+    // you can use any ui transition
+    transition: 'drop'
+  })
+;
+</script>
+

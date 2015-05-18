@@ -1,0 +1,66 @@
+
+<style>
+  h1{
+    margin: auto;
+  } 
+
+  body{
+  background-color: grey;
+  }
+
+  rect {
+    stroke: #fff;
+    stroke-width: .1px;
+  }
+
+  .job {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .title{
+    color: black;
+    font-weight: bold;
+  }
+
+  .skill{
+    color: grey;
+  }
+
+  .body_div{
+    height:100%;
+    width:100%;
+    background-color:#ADD8E6;
+    border-radius:5px;
+    margin-bottom:5px;
+    z-index: 10px;
+  }
+
+</style>
+ 
+<script src="../../javascripts/jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="/lib/jquery.bxslider.css" rel="stylesheet" />
+
+<div class="body_div"><h1>LINKDER</h1></div>
+  <button class="ui inverted green button">Log in</button>
+  <button class="ui inverted blue button">Sign up as a Job Seeker</button>
+  <button class="ui inverted blue button">Sign up as an Employer</button>
+  <h1>Recent Jobs Added:</h1>
+    <ul class="container ui nine cards bxslider"></ul>
+          <script>
+            $.get("/jobs.json",function(data){
+              console.log(data);
+                data.forEach(function(el){
+                  var content = '<li class="green card"><div class="content"><div class="header">'+el.title+'</div><div class="meta">'+el.skill+'</div></div></li>';
+                $('.container').append(content)
+                 });
+            });
+          </script>
+
+          <script>
+             $(document).ready(function(){
+                $('.body_div').fadeOut(2500);
+              });
+          </script>
+

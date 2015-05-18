@@ -1,0 +1,24 @@
+<div>
+	<div class="ui message">
+		<div class="header">
+			<h1>You have listed <%= pluralize(@jobs.count, "job") %> on Lindker</h1>
+		</div>
+	</div>
+    <% @jobs.each do |job| %>
+		<h2><%= link_to job.title, show_matches_path(job) %></h2>
+		<p><%= pluralize(job.matched_seekers.count, "person") %> matched with this job</p>
+		<%= link_to "Edit", edit_job_path(job) ,class: "ui button" %> |
+		<%= link_to "Find employee", job_path(job),class: "ui button"  %> |
+		<%= link_to "delete", job_path(job), method: :post,class: "ui button" %>
+
+
+	<% end %>
+	<div class="ui divider" id="new-job">
+		<div class="ui button" id="new-job">
+			<%= link_to "+ New Job", new_job_path %>
+		</div>
+	</div>	
+
+  </div>
+</div>
+

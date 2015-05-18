@@ -1,56 +1,51 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+# JOBS ROUTES
+root 'jobs#index'
+get '/jobs' => 'jobs#index', as: :jobs
+post '/jobs' => 'jobs#create'
+get 'jobs/new' => 'jobs#new', as: :new_job
+get 'jobs/:id/edit' => 'jobs#edit', as: :edit_job
+get 'jobs/:id' => 'jobs#show', as: :job
+get 'job/:id' => 'jobs#show_matches', as: :show_matches
+put 'jobs/:id' => 'jobs#update'
+patch 'jobs/:id' => 'jobs#update'
+delete 'jobs/:id' => 'jobs#destroy'
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+# Seekers routes
+get "signup_seeker" => "seekers#new", as: :signup_seeker
+post "seekers" => "seekers#create"
+get "seekers" => "seekers#index" # will need to remove this once we have a front end.  
+get "seekers/:id" => "seekers#show", as: :seeker# will need to remove this once we have a front end.  
+put "seekers/:id" => "seekers#update"
+patch "seekers/:id" => "seekers#update"
+get "seekers/:id/edit" => "seekers#edit", as: :edit_seeker
+get "seekers/:id/show_all" => "seekers#show_all", as: :show_all
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+# Seeker API routes, need to activate these once the front end is ready to consume them...
+#namespace :api do
+  #get "seekers" => "seekers#index"
+  #get "seekers/:id" => "seekers#show", as: :seeker
+  #post "seekers" => "seekers#create"
+  #patch "seekers/:id" => "seekers#update"
+#end
+ 
+# Employers routes
+get "signup_employer" => "employers#new", as: :signup_employer
+post "employers" => "employers#create"
+get "employers" => "employers#index"
+get "employers/:id/edit" => "employers#edit", as: :edit_employer
+put "employers/:id" => "employers#update", as: :employer
+patch "employers/:id" => "employers#update"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+# Match routes
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+post "matches" => "matches#create", as: :matches
+put "matches/:id" => "matches#update", as: :match
+patch "matches/:id" => "matches#update"
+  
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+#log in routes
+get '/login'     => 'sessions#new'
+post '/login'    => 'sessions#create'
+delete '/logout' => 'sessions#destroy'  
 end

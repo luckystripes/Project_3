@@ -1,0 +1,28 @@
+
+     <%= form_for :login, :html => { :class => 'ui form segment'}  do |f| %>
+        <h4 class="ui dividing header">Sign Up to look for a job</h4>
+
+        </div>
+    <div class="two fields">
+
+    <div class="field">
+    <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email%>
+    </div>
+    <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password%>
+    </div>
+
+    </div>
+
+    </div>
+
+
+
+
+      <%= f.submit "Sign in", class: "ui blue submit button" %>
+
+        
+      <% end %>

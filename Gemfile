@@ -7,6 +7,7 @@ gem 'rails', '4.2.1'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -24,7 +25,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -40,6 +43,21 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.3.6'
+
+  gem 'rspec-rails', '~> 3.2.1'
+  gem 'factory_girl_rails'
 end
+
+gem 'paperclip', '~> 4.2'
+
+gem 'aws-sdk', '< 2.0'
+
+gem 'carrierwave'
+
+gem 'rmagick'
+
+gem "figaro"
+
+
 

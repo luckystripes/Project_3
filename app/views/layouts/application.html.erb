@@ -5,10 +5,95 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+
 </head>
 <body>
 
-<%= yield %>
+<!----------------------------- LOGO  ---------------------->
+<!-- <div class="ui leaderboard test ad" data-text="Leaderboard">
+  <h1 class="ui header">Lindker</h1>
+  <%= image_tag("trex.png", class: "ui avatar image") %>
 
+</div> -->
+<!----------------------------- LOGIN  ---------------------->
+  <% if logged_in? %>
+
+    <% if current_user.employer? %>
+    <div class="ui blue inverted menu navbar">
+      <%= image_tag("lindker_logo", class: "ui small rounded image item") %>
+          <a class="item">Logged in as: <%= current_user.first_name %></a>
+      <%= link_to 'Post a Job', new_job_path, class: "item" %>
+      <!-- <a href="" class="item">Browse Job</a> -->
+        <div class="right menu">
+         <div class="ui dropdown item">Profile
+          <i class="dropdown icon"></i>
+            <div class="menu">
+              <%= link_to 'My Posted Jobs', employers_path, class: "item" %>
+              <%= link_to 'Settings', edit_employer_path(current_user), class: "item"%>
+              <%= link_to 'Log Out', logout_path, method: :delete, class: "item" %>
+            </div>
+          </div>
+          </div>
+          </div>
+
+
+      <% else %>
+    <div class="ui blue inverted menu navbar">
+      <!-- <a href="" class="item">Add Job</a> -->
+      <%= image_tag("lindker_logo", class: "ui small rounded image item") %>
+          <a class="item">Logged in as: <%= current_user.first_name %></a>
+      <%= link_to 'Browse Job', seeker_path(current_user) , class: "item"%>
+        <div class="right menu">
+          <div class="ui dropdown item">Profile
+          <i class="dropdown icon"></i>
+            <div class="menu">
+              <%= link_to 'Matched', seekers_path, class: "item" %>
+              <%= link_to 'Settings', edit_seeker_path(current_user), class: "item"%>
+              <%= link_to 'Log Out', logout_path, class: "item" %> </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <% else%>
+
+
+       <div class="ui blue inverted menu navbar">
+      <!-- <a href="" class="item">Add Job</a> -->
+      <%= image_tag("lindker_logo", class: "ui small rounded image item") %>
+
+      <%= link_to 'Sign up as a job seeker', signup_seeker_path, class: "item"%>
+      <%= link_to 'Sign up as an employer', signup_employer_path, class: "item"%>
+      <div class="right menu">
+      <%= link_to 'Login', login_path, class: "item"%>
+      </div>
+
+      </div>
+
+
+
+
+
+
+    <% end %>
+  
+
+  <% if flash[:danger] %>
+      <h4 class="bg-danger flash"><%= flash[:danger] %></h4>
+    <% end %>
+
+
+
+      <%= yield %>
+
+
+
+
+
+  <script>
+    $('.ui.dropdown')
+    .dropdown();
+  </script>
 </body>
 </html>

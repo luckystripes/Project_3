@@ -1,0 +1,94 @@
+      <%= form_for(@employer, :html => {:class => 'ui form segment', :multipart => true }) do |f| %>
+
+  <h4 class="ui dividing header">Edit Your Profile</h4>
+
+      <% if @employer.errors.any? %>
+       <div>
+         <h4 class="text-danger"><%= pluralize(@employer.errors.count, "error") %>prevented you from signing up!</h4>
+        <ul class="list-group">
+        <% @employer.errors.full_messages.each do |msg|%>
+        <li class="list-group-item list-group-item-danger">
+          <%= msg.downcase %>
+        </li>
+        <% end %>
+        </ul>        
+       </div>
+       <% end %>
+
+
+    <div class="two fields">
+          <div class="field">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name%>
+          </div>
+          <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name%>
+          </div>
+
+
+          <div class="field">
+
+          <%= f.label :company_name %>
+          <%= f.text_field :company_name%>
+
+      </div>
+        <div class="field">
+          <%= f.label :phone %>
+          <%= f.text_field :phone %>
+        </div>
+
+           <div class="field">
+          <%= f.label :avatar, "Company Logo" %>
+          <%= f.file_field :avatar%>
+        </div>
+
+        </div>
+        <h4 class="ui dividing header">Company address</h4>
+        <div class="field">
+          <%= f.label :address %>
+          <%= f.text_field :address %>
+        </div>
+        <div class="three fields">
+
+        <div class="field">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
+        </div>
+        <div class="field">
+          <%= f.label :state %>
+          <%= f.text_field :state %>
+        </div>
+        <div class="field">
+          <%= f.label :zipcode %>
+          <%= f.text_field :zipcode %>
+        </div>
+        </div>
+
+        <h4 class="ui dividing header">Account Info</h4>
+    <div class="two fields">
+
+    <div class="field">
+    <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email%>
+    </div>
+    <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password%>
+    </div>
+    <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation%>
+    </div>
+    </div>
+
+    </div>
+
+
+
+
+      <%= f.submit "Edit your profile", class: "ui blue submit button" %>
+
+        
+      <% end %>
