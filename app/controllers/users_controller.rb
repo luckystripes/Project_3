@@ -2,7 +2,7 @@ class UsersController < ApplicationController
  
 	def index
 	 	#render json: Job.all
-		@recent_jobs = Job.last(9).reverse  
+		@recent_jobso = Job.last(9).reverse  
 		@matches = Match.all_matched.count
 		@jobs = Job.all.count
 
