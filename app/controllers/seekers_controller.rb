@@ -7,13 +7,17 @@ class SeekersController < ApplicationController
   def show
     @seeker = Seeker.find(params[:id])
 
-    @match = Match.where(user_accept: nil, job_accept: true, user_id: @seeker.id).first
+    @job = Job.where(job_type: @seeker.job_type).shuffle.first
+
+    # @match = Match.where(user_accept: nil, job_accept: true, user_id: @seeker.id).first
     
-    if (@match==nil)
-      @job = Job.picked?(@seeker).first
-    else 
-      @job = @match.job
-    end
+    # if (@match==nil)
+    #   @job = Job.picked?(@seeker).first
+    # else 
+    #   @job = @match.job
+    # end
+
+
   end
 
   def show_all
