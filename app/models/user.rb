@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_secure_password
+
 # attr_reader :password
 
 #   def password=(unencrypted_password)
