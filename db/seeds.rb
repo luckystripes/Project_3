@@ -237,12 +237,15 @@ end
 	@the_last_name=random_last_name
 	@the_email=(@the_first_name+@the_last_name+"@examples.com")
 	@the_company_name=(@the_last_name+"'s company lnc.")
-	Employer.create(first_name: @the_first_name, last_name: @the_last_name, email: @the_email, phone: random_phone, company_name: @the_company_name,password: "password", password_confirmation: "password")
+	emp = Employer.create(first_name: @the_first_name, last_name: @the_last_name, email: @the_email, phone: random_phone, company_name: @the_company_name,password: "password", password_confirmation: "password")
+
+	10.times do
+	emp.jobs.create(title: random_title, job_type: random_job_type, salary: random_salary, skill:random_skill, location: random_location)
+	end
+
 end
 
-100.times do
-	Employer.all[rand(0..9)].jobs.create(title: random_title, job_type: random_job_type, salary: random_salary, skill:random_skill, location: random_location)
-end
+
 
 
 

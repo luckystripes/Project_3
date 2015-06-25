@@ -30,16 +30,6 @@
     color: grey;
   }
 
-  .body_div{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    height:100%;
-    width:100%;
-    border-radius:5px;
-    margin-bottom:5px;
-    z-index: 10;
-  }
   #matches{
     color: white;
     font-size: 25px;
@@ -65,15 +55,6 @@
         width: 100%;}
  
 </style>
- 
-<div class="body_div" id="gradient"><%=image_tag("trex.png", class: "ui medium rounded centered big image center") %>
-</div>
-
-<script>
-  $(document).ready(function(){
-    $('.body_div').fadeOut(4000);
-  });
-</script>
 
   <%=image_tag("https://i.imgur.com/AYrlbQ6.png", class: "ui medium rounded big image center") %>
 
